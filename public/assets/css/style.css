@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'GOTHIC';
+  src: url('/assets/fonts/GOTHIC.TTF') format('truetype');
+}
+
+:root {
+    --primary: #007bff;
+    --dark: #1b1b1b;
+    --gray: #6c757d;
+    --light-bg: #f8f9fa;
+    --blue-bg: #0e67d3;
+}
+
+body {
+    font-family: 'GOTHIC', 'Public Sans', sans-serif;
+    background: #ffffff;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 80px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    color: #444 !important;
+    margin-left: 25px;
+}
+
+/* HERO */
+.hero-wrapper {
+    padding: 80px 0;
+    
+    background-color: #bfdbf954;
+}
+
+.hero-slider-img {
+    height: 330px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+}
+
+/* ABOUT */
+.about-wrapper {
+    padding: 90px 0;
+}
+
+/* SERVICES */
+.services-wrapper img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.services-card h5 {
+    font-weight: 700;
+}
+
+/* VALUES */
+.value-icon {
+    width: 70px;
+    margin-bottom: 15px;
+}
+/* BLUE SECTION (Internet Solution) */
+.internet-solution-section {
+    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1172&q=80')
+                center center / cover no-repeat;
+    position: relative;
+    padding: 80px 0;
+}
+
+.internet-solution-section:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #276cebe0;
+    z-index: 1;
+}
+
+.internet-solution-section .container {
+    position: relative;
+    z-index: 2; 
+}
+
+ 
+
+.internet-solution-section .desc {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* BRANDS */
+.brands-wrapper img {
+    width: 80px;
+    opacity: .85;
+    transition: .2s;
+}
+
+.brands-wrapper img:hover {
+    opacity: 1;
+}
+
+/* FOOTER */
+.footer-links a {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.social-icons a {
+    font-size: 1.4rem;
+    color: #bbbbbb;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+
+/* Section Minat */
+#minat {
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  background: url('/assets/img/wed.jpg') center center/cover no-repeat;
+}  
+#minat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #e9d7f2e0;
+  z-index: 1;
+} 
+
+ #minat .container {
+  position: relative;
+  z-index: 2;
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 0 2rem; 
+}
