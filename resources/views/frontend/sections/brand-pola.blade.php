@@ -56,10 +56,10 @@
     width: 120px;
     height: 120px;
     border-radius: 15px;
-    background: linear-gradient(145deg, 
+    /* background: linear-gradient(145deg, 
         #ff6b6b 0%, 
         #4ecdc4 50%, 
-        #45b7d1 100%);
+        #45b7d1 100%); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,8 +110,8 @@
 .brand-icon:hover {
     transform: scale(1.2) rotate(10deg);
     box-shadow: 
-        0 15px 30px rgba(0, 0, 0, 0.3),
-        0 0 50px rgba(255, 107, 107, 0.5);
+        /* 0 15px 30px rgba(0, 0, 0, 0.3), */
+        /* 0 0 50px rgba(255, 107, 107, 0.5); */
     z-index: 10;
 }
 
@@ -176,17 +176,18 @@
 
 .row.justify-content-center.branc::before {
     left: 0;
-    background: linear-gradient(to right, 
+    /* background: linear-gradient(to right, 
         var(--background-color, white) 0%, 
-        transparent 100%);
+        transparent 100%); */
 }
 
 .row.justify-content-center.branc::after {
     right: 0;
-    background: linear-gradient(to left, 
+    /* background: linear-gradient(to left, 
         var(--background-color, white) 0%, 
-        transparent 100%);
-}</style><!-- BRAND LOGOS dengan running effect -->
+        transparent 100%); */
+}
+</style><!-- BRAND LOGOS dengan running effect -->
 <div class="row justify-content-center branc gy-4 mt-4">
     <div class="brand-track">
         <div class="col-4 col-md-2">
