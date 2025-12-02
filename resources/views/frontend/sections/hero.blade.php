@@ -5,11 +5,11 @@
 
             <!-- TEXT -->
             <div class="col-lg-6">
-                <h2 class="fw-bold mb-3">
-                    Empowering <span class="text-primary">Businesses</span> with ICT
-                </h2>
+                <span class="fw-bold mb-3" style="font-size: 30px">
+                    Empowering <span class="" style="color: #1f2675;"><strong>Businesses</strong></span> with ICT
+                </span>
                 <p class="text-muted">
-                    The world is changing and ICT is at the forefront...
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus laudantium magni eligendi eaque quo laborum obcaecati nisi sint repudiandae adipisci rem minima aspernatur, 
                 </p>
                 <a class="btn btn-primary px-4 mt-2">Detail</a>
             </div>

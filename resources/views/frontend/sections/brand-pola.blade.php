@@ -5,8 +5,8 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 2rem;
-    gap: 40px;
-    padding: 20px 0;
+     gap: 40px;
+    padding: 50px 0;
     overflow: hidden; /* Hide overflow untuk efek running */
     position: relative;
     width: 100%;
@@ -18,6 +18,7 @@
     gap: 40px;
     animation: runningText 30s linear infinite;
     will-change: transform;
+    
 }
 
 /* Hentikan animasi saat hover */
