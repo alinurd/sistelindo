@@ -9,30 +9,9 @@
             verticals. With over 20-years’ experience it’s no wonder ICT is the access control manufacturer of 
             choice for so many.
         </p>
+         
+        @include('frontend.sections.brand-pola')
 
-        <!-- BRAND LOGOS -->
-        <div class="row justify-content-center gy-4 mt-4">
-
-            <div class="col-4 col-md-2">
-                <img src="https://placehold.co/90x90?text=Logo" class="brand-icon">
-            </div>
-
-            <div class="col-4 col-md-2">
-                <img src="https://placehold.co/90x90?text=Logo" class="brand-icon">
-            </div>
-
-            <div class="col-4 col-md-2">
-                <img src="https://placehold.co/90x90?text=Logo" class="brand-icon">
-            </div>
-
-            <div class="col-4 col-md-2">
-                <img src="https://placehold.co/90x90?text=Logo" class="brand-icon">
-            </div>
-
-            <div class="col-4 col-md-2">
-                <img src="https://placehold.co/90x90?text=Logo" class="brand-icon">
-            </div>
-        </div>
 
         <!-- SPACING -->
         <div class="my-5"></div>

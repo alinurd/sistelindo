@@ -1,7 +1,7 @@
 @php
     $set = AppSetting::first();
 @endphp
-<div class="topbar py-1">
+{{-- <div class="topbar py-1">
         <div class="container d-flex flex-wrap justify-content-between align-items-center small">
             <div class="d-flex align-items-center gap-3">
             </div>
@@ -14,7 +14,7 @@
                 </a> 
             </div>
         </div>
-    </div>
+    </div> --}}
 <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
 

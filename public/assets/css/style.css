@@ -111,24 +111,20 @@ body {
 }
 
 /* FOOTER */
-.footer-links a {
-    color: #bbbbbb;
-    text-decoration: none;
+footer {
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  padding-top: 40px;
 }
 
-.footer-links a:hover {
-    color: #ffffff;
+.footer-content {
+  font-family: 'GOTHIC', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
 }
-
-.social-icons a {
-    font-size: 1.4rem;
-    color: #bbbbbb;
-}
-
-.social-icons a:hover {
-    color: #ffffff;
-}
-
 
 
 @keyframes fadeIn {
