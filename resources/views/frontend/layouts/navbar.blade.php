@@ -28,11 +28,11 @@
         </button>
 
         <div id="nav" class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li><a class="nav-link" href="#">Home</a></li>
-                <li><a class="nav-link" href="#">About Us</a></li>
-                <li><a class="nav-link" href="#">Products & Services</a></li>
-                <li><a class="nav-link" href="#">Contact Us</a></li>
+            <ul class="navbar-nav ms-auto"> 
+                <li><a class="nav-link" href="{{ route('guest.home') }}">Home</a></li>
+                <li><a class="nav-link" href="{{ route('guest.about') }}">About Us</a></li>
+                <li><a class="nav-link" href="{{ route('guest.about') }}">Products & Services</a></li>
+                <li><a class="nav-link" href="{{ route('guest.about') }}">Contact Us</a></li>
             </ul>
         </div>
 
