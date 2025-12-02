@@ -6,7 +6,7 @@
         <h2 class="text-4xl font-bold ">
             <span class="text-title mb-3 animate-fade-in mt-5 text-center">Product and <span
                     class="text-highlight"><strong>Service</strong></span></span>
-
+            {{ $subTitle }}
         </h2>
     </section>
     <section class="container mx-auto px-4">
@@ -113,67 +113,77 @@
             </div>
         </div>
     </section>
+    
     <div class="section-divider animate-fade-in"></div>
-    @include('frontend.sections.line-of')
+       @include('frontend.sections.line-of')
 
 
-    <div class="section-divider animate-fade-in"></div>
-    <section class="text-center mb-24 px-4 mt-5">
-        <span class="text-title mb-3 animate-fade-in mt-5 text-center">Product and <span
-                class="text-highlight"><strong>Service</strong></span></span>
+       <section class="py-5 bg-light">
+    <div class="container text-center">
 
-        <div class="container">
-            <div class="row justify-content-center">
+        <h2 class="mb-4">
+            <span class="text-primary">Product</span> and <span class="text-primary">Services</span>
+        </h2>
 
-                <!-- ITEM 1 -->
-                <div class="col-lg-8 d-flex mb-4">
-                    <img src="https://placehold.co/250x200" class="shadow-sm rounded me-3" />
-                    <div>
-                        <div class="text-start">
-                            <h5 class="fw-bold mb-1 ">Dependable</h5>
-                            <p class="text-muted small mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nihil, repellat nesciunt
-                                quidem animi atque suscipit labore cupiditate corrupti ex libero, ducimus repudiandae, a
-                                odit! Magnam consectetur quibusdam tenetur obcaecati.
-                            </p>
-                            <a href="#" class="btn btn-primary px-4">Detail</a>
-                        </div>
+        <div class="row justify-content-center g-4">
+
+            <!-- ITEM 1 -->
+            <div class="col-md-6 col-lg-6 animate-fade-in stagger-delay-1">
+                <div class="service-card text-center p-4 h-100 shadow-sm">
+                    <div class="service-image mb-3">
+                        <img src="https://placehold.co/350x220/0066cc/ffffff?text=Internet+Services"
+                             class="rounded shadow w-100 h-auto mb-4 hover-grow">
                     </div>
+                    <h5 class="fw-bold">Internet Dedicated</h5>
+                    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam asperiores quidem id perferendis, suscipit obcaecati fugiat deleniti. Magnam minima atque libero dicta architecto praesentium voluptatem facilis ad similique quod.</span>
+                    <br><a href="#" class="btn btn-primary mt-3">Detail</a>
                 </div>
-                <hr>
-                <div class="col-lg-8 d-flex mb-4">
-                    <img src="https://placehold.co/250x200" class="shadow-sm rounded me-3" />
-                    <div>
-                        <div class="text-start">
-                            <h5 class="fw-bold mb-1 ">Dependable</h5>
-                            <p class="text-muted small mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nihil, repellat nesciunt
-                                quidem animi atque suscipit labore cupiditate corrupti ex libero, ducimus repudiandae, a
-                                odit! Magnam consectetur quibusdam tenetur obcaecati.
-                            </p>
-                            <a href="#" class="btn btn-primary px-4">Detail</a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="col-lg-8 d-flex mb-4">
-                    <img src="https://placehold.co/250x200" class="shadow-sm rounded me-3" />
-                    <div>
-                        <div class="text-start">
-                            <h5 class="fw-bold mb-1 ">Dependable</h5>
-                            <p class="text-muted small mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nihil, repellat nesciunt
-                                quidem animi atque suscipit labore cupiditate corrupti ex libero, ducimus repudiandae, a
-                                odit! Magnam consectetur quibusdam tenetur obcaecati.
-                            </p>
-                            <a href="#" class="btn btn-primary px-4">Detail</a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
+
             </div>
-        </div>
-    </section>
 
-    <div class="section-divider animate-fade-in"></div>
+            <!-- ITEM 2 -->
+            <div class="col-md-6 col-lg-6 animate-fade-in stagger-delay-1">
+                <div class="service-card text-center p-4 h-100 shadow-sm">
+                    <div class="service-image mb-3">
+                        <img src="https://placehold.co/350x220/0066cc/ffffff?text=Internet+Services"
+                             class="rounded shadow w-100 h-auto mb-4 hover-grow">
+                    </div>
+                    <h5 class="fw-bold">Managed CPE Solution</h5>
+                     <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam asperiores quidem id perferendis, suscipit obcaecati fugiat deleniti. Magnam minima atque libero dicta architecto praesentium voluptatem facilis ad similique quod.</span>
+                    <br><a href="#" class="btn btn-primary mt-3">Detail</a>
+                </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="col-md-6 col-lg-6 animate-fade-in stagger-delay-1">
+                <div class="service-card text-center p-4 h-100 shadow-sm">
+                    <div class="service-image mb-3">
+                        <img src="https://placehold.co/350x220/0066cc/ffffff?text=Internet+Services"
+                             class="rounded shadow w-100 h-auto mb-4 hover-grow">
+                    </div>
+                    <h5 class="fw-bold">SDWAN & Firewall Solution</h5>
+                     <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam asperiores quidem id perferendis, suscipit obcaecati fugiat deleniti. Magnam minima atque libero dicta architecto praesentium voluptatem facilis ad similique quod.</span>
+                    <br><a href="#" class="btn btn-primary mt-3">Detail</a>
+                </div>
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="col-md-6 col-lg-6 animate-fade-in stagger-delay-1">
+                <div class="service-card text-center p-4 h-100 shadow-sm">
+                    <div class="service-image mb-3">
+                        <img src="https://placehold.co/350x220/0066cc/ffffff?text=Internet+Services"
+                             class="rounded shadow w-100 h-auto mb-4 hover-grow">
+                    </div>
+                    <h5 class="fw-bold">WAF with API Protection</h5>
+                     <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam asperiores quidem id perferendis, suscipit obcaecati fugiat deleniti. Magnam minima atque libero dicta architecto praesentium voluptatem facilis ad similique quod.</span>
+                    <br><a href="#" class="btn btn-primary mt-3">Detail</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+ 
 @endsection

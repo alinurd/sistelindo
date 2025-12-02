@@ -6,6 +6,7 @@ Route::name('guest.')->group(function() {
     $localClass = LanddingController::class;
     Route::get('/', [$localClass, 'index'])->name('home'); 
     Route::get('/product', [$localClass, 'product'])->name('product'); 
+    Route::get('/subproduct/{id}', [$localClass, 'subproduct'])->name('subproduct'); 
     Route::get('/about', [$localClass, 'about'])->name('about'); 
     Route::get('/gallery', [$localClass, 'gallery'])->name('gallery'); 
     Route::get('/booking', [$localClass, 'booking'])->name('booking'); 

@@ -8,7 +8,6 @@
 @include('frontend.sections.values')
 {{-- @include('frontend.sections.features') --}}
 @include('frontend.sections.solution')
-@include('frontend.sections.brands')
-@include('frontend.sections.contact')
+@include('frontend.sections.brands') 
 
 @endsection

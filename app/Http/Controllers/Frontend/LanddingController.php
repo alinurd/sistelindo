@@ -33,7 +33,17 @@ class LanddingController extends Controller
 
         return view('frontend.product', $data);
     }
+    public function subproduct()
+    {
+        $data['PageDetail'] = PageDetail::where('status', 1)->orderby('sort', 'asc')->get();
+        $data['subTitle']='subTitle';
+        return view('frontend.subproduct', $data);
+    }
 
-  
+  public function contact()
+    {
+
+        return view('frontend.contact');
+    }
    
 }

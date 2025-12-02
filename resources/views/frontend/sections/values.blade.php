@@ -1,4 +1,4 @@
-<section class="py-5 ">
+<section class="py-5  animate-fade-in">
     <div class="container">
 
         <!-- TOP VALUES -->

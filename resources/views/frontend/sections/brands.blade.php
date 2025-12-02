@@ -1,4 +1,4 @@
-<section class="py-5 trusted-section">
+<section class="py-5 trusted-section  animate-fade-in">
     <div class="container text-center">
 
         <!-- TITLE -->

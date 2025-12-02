@@ -1,4 +1,4 @@
-<section class="internet-solution-section">
+<section class="internet-solution-section  animate-fade-in">
          <div class="container text-center text-white py-5">
 
             <h3 class="fw-bold">Sistelindo Internet Solution</h3>

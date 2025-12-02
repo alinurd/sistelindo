@@ -1,4 +1,4 @@
-<section class="features-section py-5 bg-light">
+<section class="features-section py-5 bg-light  animate-fade-in">
     <div class="container text-center">
 
         <div class="row g-4 justify-content-center">

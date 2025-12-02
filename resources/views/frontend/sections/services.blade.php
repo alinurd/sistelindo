@@ -1,4 +1,4 @@
-<section class="services-wrapper py-5">
+<section class="services-wrapper py-5  animate-fade-in">
     <div class="container">
 
         <div class="row g-5">

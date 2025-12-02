@@ -1,9 +1,9 @@
-<section class="about-section text-center py-5 bg-light">
+<section class="about-section text-center py-5 bg-light  animate-fade-in">
     <div class="container">
         <h3 class="fw-bold mb-3">About Us</h3>
 
         <p class="text-muted mx-auto" style="max-width: 700px;">
-            Welcome to PT Sistelindo Mitralintas...
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi iusto ea eaque deleniti, architecto, atque tenetur laborum labore unde, repellat aperiam. Vitae cum deleniti, esse quos illo nobis autem mollitia!
         </p>
 
         <a href="#" class="btn btn-primary px-4">Detail</a>

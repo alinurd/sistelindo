@@ -1,4 +1,4 @@
-<section class="hero-wrapper">
+<section class="hero-wrapper animate-fade-in">
     <div class="container">
 
         <div class="row align-items-center">
