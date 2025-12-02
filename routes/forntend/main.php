@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::name('guest.')->group(function() {
     $localClass = LanddingController::class;
     Route::get('/', [$localClass, 'index'])->name('home'); 
-    Route::get('/facility', [$localClass, 'facility'])->name('facility'); 
+    Route::get('/product', [$localClass, 'product'])->name('product'); 
     Route::get('/about', [$localClass, 'about'])->name('about'); 
     Route::get('/gallery', [$localClass, 'gallery'])->name('gallery'); 
     Route::get('/booking', [$localClass, 'booking'])->name('booking'); 

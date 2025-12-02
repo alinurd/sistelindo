@@ -31,7 +31,7 @@ class LanddingController extends Controller
     {
         $data['PageDetail'] = PageDetail::where('status', 1)->orderby('sort', 'asc')->get();
 
-        return view('frontend.index', $data);
+        return view('frontend.product', $data);
     }
 
   

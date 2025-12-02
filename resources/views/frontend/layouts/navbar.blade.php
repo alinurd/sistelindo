@@ -31,7 +31,7 @@
             <ul class="navbar-nav ms-auto"> 
                 <li><a class="nav-link" href="{{ route('guest.home') }}">Home</a></li>
                 <li><a class="nav-link" href="{{ route('guest.about') }}">About Us</a></li>
-                <li><a class="nav-link" href="{{ route('guest.about') }}">Products & Services</a></li>
+                <li><a class="nav-link" href="{{ route('guest.product') }}">Products & Services</a></li>
                 <li><a class="nav-link" href="{{ route('guest.about') }}">Contact Us</a></li>
             </ul>
         </div>
