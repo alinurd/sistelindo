@@ -35,6 +35,13 @@
       <input type="text" class="form-control" id="title" name="title" required />
     </div>
   </div>
+    
+  <div class="row g-1 mb-3">
+    <div class="col-md-8 col-12">
+      <label for="title" id="label-title" class="form-label">Caption</label>
+      <input type="text" class="form-control" id="caption" name="caption" required />
+    </div>
+  </div>
    
   
    

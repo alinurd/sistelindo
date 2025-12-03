@@ -24,7 +24,7 @@ class IsoController extends Controller
 
         $data = $request->only(['id', 'sort', 'status', 'image',
                                     'title', 
-                                    // 'page_datail_id', 
+                                    'caption', 
                                     'description', 
                                 ]);
         $data = (object) $data;
