@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => $title])
+@extends('admin.layouts.app', ['title' => $title, 'ckeditor' => true])
 
 @section('content')
 <div class="card shadow">

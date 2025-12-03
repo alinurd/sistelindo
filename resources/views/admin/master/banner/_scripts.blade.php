@@ -1,4 +1,6 @@
 <script>
+    
+    CKEDITOR.replace('dsc', CKEDITORGlobalOptions); 
     // delete
     function btnDeleteItem(target, title) {
         Swal.fire({
@@ -65,6 +67,8 @@
             jsonData[key] = $(this).val().trim();
         });
 
+                        jsonData['dsc'] = CKEDITOR.instances['dsc'].getData();
+
         $.ajax({
             type: "POST",
             url: "{{ route($prefixRoute.'create') }}",
@@ -100,6 +104,8 @@
                     }
                 });
                 $('#data_id').val(id);
+                
+            CKEDITOR.instances['dsc'].setData(data['dsc']);
                 $('#modalForm').modal('toggle');
             } else {
                 swAlertDialog('error', res.message);

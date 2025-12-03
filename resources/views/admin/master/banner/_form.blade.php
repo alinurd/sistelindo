@@ -24,7 +24,10 @@
             <input type="text" class="form-control" id="title" name="title" required />
         </div>
     </div>
-
+ <div class="mb-3">
+    <label for="dsc" id="label-dsc" class="form-label">Description</label>
+    <textarea name="dsc" id="dsc" class="form-control"></textarea>
+  </div>
         <!-- Featured Image -->
         <div class="row">
             <div class="col mb-3">

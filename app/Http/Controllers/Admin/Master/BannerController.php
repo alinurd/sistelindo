@@ -20,8 +20,8 @@ class BannerController extends Controller
 
     public function create(Request $request)
     {
-        $data = $request->only(['id', 'sort', 'status', 'title','image',]);
-        $data = (object) $data;
+        $data = $request->only(['id', 'sort', 'status', 'title','image','dsc']);
+        $data = (object) $data; 
 
         if($data->id == 0){
             $sort = Banner::where('sort',$data->sort)->count();
