@@ -1,9 +1,9 @@
 <script>
-    CKEDITOR.replace('address', CKEDITORGlobalOptions); 
-    CKEDITOR.replace('about', CKEDITORGlobalOptions); 
-    CKEDITOR.replace('location', CKEDITORGlobalOptions); 
-    CKEDITOR.replace('facility', CKEDITORGlobalOptions); 
-    CKEDITOR.replace('event_type', CKEDITORGlobalOptions);  
+    CKEDITOR.replace('review', CKEDITORGlobalOptions); 
+    CKEDITOR.replace('vision', CKEDITORGlobalOptions); 
+     CKEDITOR.replace('mission', CKEDITORGlobalOptions); 
+    CKEDITOR.replace('service', CKEDITORGlobalOptions);  
+    CKEDITOR.replace('lisensi', CKEDITORGlobalOptions);  
     // delete
     function btnDeleteItem(target, title) {
         Swal.fire({
@@ -19,8 +19,7 @@
             buttonsStyling: false
         }).then((result) => {
             if (result.isConfirmed) {
-                swAlertDialog('success', 'Berhasil menghapus data');
-                $.get(target, () => location.reload());
+                swAlertDialog('success', 'Berhasil menghapus data'); 
             }
         })
     }
@@ -49,8 +48,7 @@
     function actionChangeStatusItem(url, id) {
         let sts = document.getElementById('status' + id).checked ? 1 : 0;
         $.get(url, { sts: sts }, function(res) {
-            swAlertDialog(res.status, res.message);
-            if (res.status == 'success') location.reload();
+            swAlertDialog(res.status, res.message); 
         }, 'json');
     }
  
@@ -70,11 +68,11 @@
             jsonData[key] = $(this).val().trim();
         });
 
-                        jsonData['address'] = CKEDITOR.instances['address'].getData();
-                        jsonData['about'] = CKEDITOR.instances['about'].getData();
-                        jsonData['location'] = CKEDITOR.instances['location'].getData();
-                        jsonData['facility'] = CKEDITOR.instances['facility'].getData();
-                        jsonData['event_type'] = CKEDITOR.instances['event_type'].getData();
+                        jsonData['review'] = CKEDITOR.instances['review'].getData();
+                        jsonData['vision'] = CKEDITOR.instances['vision'].getData(); 
+                        jsonData['mission'] = CKEDITOR.instances['mission'].getData();
+                        jsonData['service'] = CKEDITOR.instances['service'].getData();
+                        jsonData['lisensi'] = CKEDITOR.instances['lisensi'].getData();
 
 
         $.ajax({
@@ -89,8 +87,7 @@
             },
             success: function(res) {
                 if (res.status == 'success') {
-                    swAlertDialog('success', 'Data berhasil disimpan');
-                    location.reload();
+                    swAlertDialog('success', 'Data berhasil disimpan'); 
                 } else {
                     swAlertDialog('error', res.message);
                     $('#submit').prop('disabled', false);
@@ -119,11 +116,11 @@
              
 
             // Khusus CKEditor
-            CKEDITOR.instances['address'].setData(data['address']);
-            CKEDITOR.instances['about'].setData(data['about']);
-            CKEDITOR.instances['location'].setData(data['location']);
-            CKEDITOR.instances['facility'].setData(data['facility']);
-            CKEDITOR.instances['event_type'].setData(data['event_type']);
+            CKEDITOR.instances['review'].setData(data['review']);
+            CKEDITOR.instances['vision'].setData(data['vision']);
+            CKEDITOR.instances['lisensi'].setData(data['lisensi']);
+            CKEDITOR.instances['mission'].setData(data['mission']);
+            CKEDITOR.instances['service'].setData(data['service']);
              
 
             $('#modalForm').modal('toggle');

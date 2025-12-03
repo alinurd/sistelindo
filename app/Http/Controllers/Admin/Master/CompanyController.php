@@ -21,29 +21,13 @@ class CompanyController extends Controller
     { 
 
         $data = $request->only(['id', 'sort', 'status', 'image',
-                                    'title', 
-                                    'about', 
-                                    'location', 
-                                    'facility', 
-                                    'event_type', 
-                                    'pin_point', 
-                                    'address', 
+                                    'review', 
+                                    'vision', 
+                                    'mission', 
+                                    'service', 
+                                    'lisensi', 
                                 ]);
-                                $latitude  = $request->latitude;
-    $longitude = $request->longitude;
-    $pinPoint  = $request->pin_point;
-
-    if (!empty($latitude) && !empty($longitude)) {
-    $pinPoint = "https://www.google.com/maps?q={$latitude},{$longitude}";
-    } elseif (!empty($pinPoint)) {
-        $latitude  = null;
-        $longitude = null;
-    }
-$data = array_merge($data, [
-    'latitude'  => $latitude,
-    'longitude' => $longitude,
-    'pin_point' => $pinPoint,
-]);
+                                 
         $data = (object) $data;
 
         if($data->id == 0){

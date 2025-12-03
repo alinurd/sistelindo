@@ -63,17 +63,6 @@
     <textarea name="lisensi" id="lisensi" class="form-control"></textarea>
   </div>
 
-  <div class="mb-3">
-    <label for="pin_point" id="label-pin_point" class="form-label"></label>
-    <div class="input-group">
-                <input type="hidden" class="form-control" id="lat" name="latitude" />
-                <input type="hidden" class="form-control" id="lng" name="longitude" />
-                <input type="text" class="form-control" id="pinPoint" name="pin_point" required />
-                <span id="btn-browse-pinpoint" class="btn btn-primary"
-                    onclick="$('#modalPinPointLoaction').modal('show')">Change</span>
-            </div>
-
-   </div>
 
   <!-- Featured Image -->
   <div class="row">
@@ -135,7 +124,7 @@ const lang = {
     pin_point: "Pint Point",
 
 
-    featured: "Featured Image",
+    featured: "License Holder",
     featuredNote: "Please upload an image sized 400 x 400 pixels",
     choose: "Choose",
     save: "Save",
