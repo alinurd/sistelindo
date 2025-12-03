@@ -11,6 +11,11 @@
             'icon' => 'ti ti-window',
         ],
        [
+            'route' => 'admin.master.line.index',
+            'title' => 'Line of Master',
+            'icon' => 'ti ti-window',
+        ],
+       [
             'route' => 'admin.master.customer.index',
             'title' => 'Customer',
             'icon' => 'ti ti-window',
