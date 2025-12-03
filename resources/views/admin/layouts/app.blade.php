@@ -306,8 +306,8 @@
 
         });
     </script>
-    @isset($ckeditor)
-        @if ($ckeditor)
+    {{-- @isset($ckeditor)
+        @if ($ckeditor) --}}
             <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
             <script>
                 CKEDITOR.config.disableObjectResizing = true;
@@ -320,8 +320,8 @@
                 };
 
             </script>
-        @endif
-    @endisset
+        {{-- @endif
+    @endisset --}}
 
     @stack('js')
 
