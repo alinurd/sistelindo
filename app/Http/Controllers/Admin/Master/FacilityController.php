@@ -24,7 +24,7 @@ class FacilityController extends Controller
 
         $data = $request->only(['id', 'sort', 'status', 'image',
                                     'title', 
-                                    'page_datail_id', 
+                                    // 'page_datail_id', 
                                     'description', 
                                 ]);
         $data = (object) $data;

@@ -17,8 +17,7 @@
                             <label class="form-check-label" for="customCheckAll"></label>
                         </div>
                     </th>
-                    <th>No</th>
-                    <th>Page Detail</th> 
+                    <th>No</th> 
                     <th>Facility</th> 
                     <th>Sort</th>
                     <th>Status</th>
@@ -35,20 +34,7 @@
                             <label class="form-check-label" for="customCheck{{ $item->id }}"></label>
                         </div>
                     </td>
-                    <td>{{ $x + 1 }}</td>
-                    <td>
-                        @if($item->page_datail_id)
-                        @if ($item->pageDetail->image)
-                            <img src="{{ asset($item->image) }}" alt="unknown" width="40" height="40">
-                        @else
-                            <img src="{{ asset('assets/img/noimage.jpg') }}" style="height: 80px;" alt="Featured Image"> 
-                        @endif
-                        {{ $item->pageDetail->title }}
-                        @else
-                         unknown
-                        @endif
-                    </td>
-                      
+                    <td>{{ $x + 1 }}</td>  
  
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->sort }}</td>

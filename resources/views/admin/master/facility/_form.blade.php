@@ -37,17 +37,7 @@
   </div>
    
   
-  <div class="row g-1 mb-3">
-    <div class="col-md-8 col-12">
-      <label for="pageDetail" id="label-pageDetail" class="form-label"></label>
-      <select name="page_datail_id" class="form-control" id="pageDetail" required>
-        <option value="">- Pilih Page Detail -</option>
-        @foreach ($cbo['pageDetail'] as $p)
-          <option value="{{$p->id}}">{{$p->title}}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
+   
  
   <div class="mb-3">
     <label for="description" id="label-description" class="form-label"></label>
