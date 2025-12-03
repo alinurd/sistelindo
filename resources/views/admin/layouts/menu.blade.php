@@ -16,6 +16,11 @@
             'icon' => 'ti ti-window',
         ],
        [
+            'route' => 'admin.master.iso.index',
+            'title' => 'Iso Certificate',
+            'icon' => 'ti ti-window',
+        ],
+       [
             'route' => 'admin.master.customer.index',
             'title' => 'Customer',
             'icon' => 'ti ti-window',
