@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Master\BannerController;
+use App\Http\Controllers\Admin\Master\CompanyController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Master\FacilityController;
 use App\Http\Controllers\Admin\Master\GalleryController;
@@ -96,6 +97,17 @@ Route::prefix('/master')->name('master.')->group(function () {
     // ==== iso Routes ====
     Route::prefix('/iso')->name('iso.')->group(function () {
         $localClass = IsoController::class;
+        Route::get('/', [$localClass, 'index'])->name('index');
+        Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
+        Route::post('/submit', [$localClass, 'create'])->name('create');
+        Route::get('/delete/{id}', [$localClass, 'delete'])->name('delete');
+        Route::get('/multidelete', [$localClass, 'multi_delete'])->name('multi_delete');
+        Route::get('/status/{id}', [$localClass, 'editstatus'])->name('status');
+    });
+    
+    // ==== iso Routes ====
+    Route::prefix('/company')->name('company.')->group(function () {
+        $localClass = CompanyController::class;
         Route::get('/', [$localClass, 'index'])->name('index');
         Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
         Route::post('/submit', [$localClass, 'create'])->name('create');

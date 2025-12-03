@@ -1,8 +1,8 @@
 @php
     $masterDataMenus = [
        [
-            'route' => 'admin.master.page-detail.index',
-            'title' => 'Page Detail',
+            'route' => 'admin.master.company.index',
+            'title' => 'About Us',
             'icon' => 'ti ti-window',
         ],
        [
@@ -25,11 +25,11 @@
             'title' => 'Customer',
             'icon' => 'ti ti-window',
         ],
-       [
-            'route' => 'admin.master.gallery.index',
-            'title' => 'Gallery',
-            'icon' => 'ti ti-window',
-        ],
+      //  [
+      //       'route' => 'admin.master.gallery.index',
+      //       'title' => 'Gallery',
+      //       'icon' => 'ti ti-window',
+      //   ],
        [
             'route' => 'admin.master.banner.index',
             'title' => 'Banner',
