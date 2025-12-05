@@ -105,7 +105,7 @@
                 });
                 $('#data_id').val(id);
                 
-            CKEDITOR.instances['dsc'].setData(data['dsc']);
+            CKEDITOR.instances['dsc'].setData(res.data[0]['dsc']);
                 $('#modalForm').modal('toggle');
             } else {
                 swAlertDialog('error', res.message);
