@@ -5,7 +5,7 @@
      {{-- TOP SPACING --}} 
     <section class="w-full text-center mb-16 hero-wrapper animate-fade-in">
         <h2 class="text-4xl font-bold ">
-            <span class="text-primary">Why Sistelinsddddddddddo?</span>
+            <span class="text-primary">Why Sistelindo?</span>
         </h2>
     </section>
  
@@ -141,8 +141,7 @@
         </div>
     </section>
 
-    <div class="section-divider animate-fade-in"></div>
-
+ 
     {{-- ISO QUALITY MANAGEMENT SYSTEM --}}
     
 @include('frontend.sections.iso')
