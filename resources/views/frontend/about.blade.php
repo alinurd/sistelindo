@@ -5,7 +5,7 @@
      {{-- TOP SPACING --}} 
     <section class="w-full text-center mb-16 hero-wrapper animate-fade-in">
         <h2 class="text-4xl font-bold ">
-            <span class="text-primary">Why Sistelindo?</span>
+            <span class="text-primary">Why Sistelinsddddddddddo?</span>
         </h2>
     </section>
  
