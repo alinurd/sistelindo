@@ -103,7 +103,7 @@
                     }
                 });
                 $('#data_id').val(id);
-                            CKEDITOR.instances['description'].setData(data['description']);
+                            CKEDITOR.instances['description'].setData(res.data[0]['description']);
 
                 $('#modalForm').modal('toggle');
             } else {
