@@ -242,206 +242,23 @@
                     </div>
                 @endfor
 
-                <!-- Navigation Buttons untuk Mobile -->
-                <div class="col-12">
-                    <div class="product-nav-buttons-mobile d-lg-none mt-4">
-                        <button type="button" class="product-nav-btn product-prev-btn" id="productPrevBtnMobile">
-                            <i class="fas fa-chevron-up"></i>
-                        </button>
-                        <button type="button" class="product-nav-btn product-next-btn ms-2" id="productNextBtnMobile">
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                
+            </div> 
 
-            <!-- Floating Navigation Buttons untuk Desktop (DI LUAR CONTAINER) -->
-            <div class="product-floating-nav-buttons-desktop d-none d-lg-block" id="productNavButtonsDesktop">
-                <button type="button" class="product-nav-btn product-prev-btn" id="productPrevBtnDesktop">
-                    <i class="fas fa-chevron-up"></i>
-                </button>
-                <button type="button" class="product-nav-btn product-next-btn" id="productNextBtnDesktop">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
+             
+ 
         </div>
+        <br><br>
+        <div class="bottom-right-nav-buttons">
+        <button type="button" class="nav-btn prev-btn" id="productPrevBtnDesktop">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button type="button" class="nav-btn next-btn" id="productNextBtnDesktop">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
     </section>
-
-    <style>
-        /* Floating Navigation Buttons untuk Desktop - DI LUAR CONTAINER */
-        .product-floating-nav-buttons-desktop {
-            position: absolute;
-            bottom: 0px;
-            right: -70px;
-            /* Posisi di luar container */
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* Navigation Buttons untuk Mobile */
-        .product-nav-buttons-mobile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            padding: 10px 0;
-        }
-
-        /* Tombol styling umum */
-        .product-nav-btn {
-            min-width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            background: white;
-            border: 2px solid #0d6efd;
-            color: #0d6efd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            padding: 0 20px;
-        }
-
-        .product-nav-btn:hover:not(:disabled) {
-            background: #0d6efd;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
-        }
-
-        .product-nav-btn:active:not(:disabled) {
-            transform: translateY(0);
-        }
-
-        .product-nav-btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            border-color: #6c757d;
-            color: #6c757d;
-        }
-
-        /* Desktop tombol - lingkaran kecil tanpa teks */
-        .product-floating-nav-buttons-desktop .product-nav-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            padding: 0;
-        }
-
-        /* Mobile tombol - horizontal dengan teks */
-        .product-nav-buttons-mobile .product-nav-btn {
-            border-radius: 25px;
-            padding: 0 20px;
-            gap: 8px;
-        }
-
-        /* Styling untuk service card */
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .hover-grow {
-            transition: transform 0.3s ease;
-        }
-
-        .hover-grow:hover {
-            transform: scale(1.05);
-        }
-
-        /* Animasi untuk konten */
-        .product-item {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1400px) {
-            .product-floating-nav-buttons-desktop {
-                right: -60px;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .product-floating-nav-buttons-desktop {
-                right: -50px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .product-floating-nav-buttons-desktop {
-                display: none !important;
-            }
-
-            .product-nav-buttons-mobile {
-                display: flex !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .product-nav-btn {
-                height: 45px;
-                font-size: 0.9rem;
-                padding: 0 15px;
-            }
-
-            .product-nav-buttons-mobile .product-nav-btn {
-                min-width: 140px;
-            }
-
-            .service-card {
-                padding: 15px;
-            }
-
-            .service-image img {
-                height: 180px !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .service-image img {
-                height: 150px !important;
-            }
-
-            .product-nav-buttons-mobile {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .product-nav-buttons-mobile .product-nav-btn {
-                width: 100%;
-                max-width: 250px;
-                margin: 0 !important;
-            }
-        }
-    </style>
-
+ 
     <script>
         // Data products dari PHP ke JavaScript
         const products = @json($product);
@@ -496,14 +313,6 @@
             const mobileNavContainer = document.createElement('div');
             mobileNavContainer.className = 'col-12';
             mobileNavContainer.innerHTML = `
-        <div class="product-nav-buttons-mobile d-lg-none mt-4">
-            <button type="button" class="product-nav-btn product-prev-btn" id="productPrevBtnMobile">
-                <i class="fas fa-chevron-up"></i> Sebelumnya
-            </button>
-            <button type="button" class="product-nav-btn product-next-btn ms-2" id="productNextBtnMobile">
-                Selanjutnya <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
     `;
             productContainer.appendChild(mobileNavContainer);
 
@@ -604,3 +413,89 @@
         });
     </script>
 @endsection
+<style>
+ 
+    .bottom-right-nav-buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+    }
+    
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #007bff;
+        background-color: white;
+        color: #007bff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+    
+    .nav-btn:hover:not(:disabled) {
+        background-color: #007bff;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
+    }
+    
+    .nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        border-color: #ccc;
+        color: #ccc;
+        transform: none;
+    }
+    
+    /* Untuk layar kecil */
+    @media (max-width: 768px) {
+        .bottom-right-nav-buttons {
+            bottom: 15px;
+            right: 15px;
+            gap: 8px;
+        }
+        
+        .nav-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    /* Untuk layar sangat kecil */
+    @media (max-width: 576px) {
+        .bottom-right-nav-buttons {
+            bottom: 10px;
+            right: 10px;
+            gap: 5px;
+        }
+        
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    
+    /* Untuk layar extra kecil (ponsel) */
+    @media (max-width: 400px) {
+        .bottom-right-nav-buttons {
+            bottom: 8px;
+            right: 8px;
+        }
+        
+        .nav-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
