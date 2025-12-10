@@ -158,7 +158,7 @@
     </div>
 
     <!-- Floating Navigation Buttons (Pojok Kanan Bawah) -->
-     <div class="floating-nav-buttons">
+    <div class="bottom-right-nav-buttons">
         <button type="button" class="nav-btn prev-btn" id="prevBtnF">
             <i class="fas fa-chevron-left"></i>
         </button>
@@ -170,38 +170,39 @@
 
 <style>
     /* Floating Navigation Buttons Styling */
-    .floating-nav-buttons {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 1000;
+   
+    .bottom-right-nav-buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
         display: flex;
-        gap: 12px;
+        gap: 10px;
+        z-index: 100;
     }
-
+    
     .nav-btn {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: white;
-        border: 2px solid #0d6efd;
-        color: #0d6efd;
+        border: 2px solid #007bff;
+        background-color: white;
+        color: #007bff;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         cursor: pointer;
+        font-size: 1.2rem;
     }
-
+    
     .nav-btn:hover:not(:disabled) {
-        background: #0d6efd;
+        background-color: #007bff;
         color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
     }
-
+    
     .nav-btn:disabled {
         opacity: 0.5;
         cursor: not-allowed;
