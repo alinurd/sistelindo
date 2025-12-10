@@ -121,7 +121,7 @@
 
 
     <section class="text-center mt-5 px-4">
-        <span class="text-title mb-3 animate-fade-in">Company <span
+        <span class="text-title mb-1 animate-fade-in">Company <span
                 class="text-highlight"><strong>Vision</strong></span></span>
         <div class="animate-fade-in stagger-delay-1">
             <div class="row justify-content-center">
@@ -135,7 +135,7 @@
 
         </div>
 
-        <span class="text-title mb-3 animate-fade-in mt-5">Company <span
+        <span class="text-title mb-1 animate-fade-in mt-5">Company <span
                 class="text-highlight"><strong>Mission</strong></span></span>
         <div class="animate-fade-in stagger-delay-3">
             <div class="animate-fade-in stagger-delay-1">
