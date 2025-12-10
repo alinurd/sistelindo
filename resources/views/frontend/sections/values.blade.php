@@ -134,38 +134,36 @@
 
         <!-- SERVICE LIST -->
         <div class="row justify-content-center">
-            @php
+            <!-- Kontainer untuk Konten -->
+            <div id="facilityContainerF" class="col-12">
+                @php
                 $visibleCount = 3;
                 $totalFacilities = count($facility);
-            @endphp
+                @endphp
 
-            <!-- Kontainer untuk Konten -->
-            <div id="facilityContainer" class="col-12">
                 @for ($i = 0; $i < min($visibleCount, $totalFacilities); $i++)
-                    @php $p = $facility[$i]; @endphp
+                    @php $p=$facility[$i]; @endphp
                     <div class="col-lg-8 mx-auto d-flex mb-4 facility-item">
-                        <img src="{{ asset($p->image) }}" width="150" height="100"
-                            class="shadow-sm rounded me-3" />
-                        <div>
-                            <h6 class="fw-bold mb-1" style="font-size: 15px">{{ $p->title }}</h6>
-                            <p class="text-muted small mb-2">
-                                {{ $p->description }}
-                            </p>
-                        </div>
+                    <img src="{{ asset($p->image) }}" width="150" height="100" class="shadow-sm rounded me-3" />
+                    <div class="flex-grow-1">
+                        <h6 class="fw-bold mb-1" style="font-size: 15px">{{ $p->title }}</h6>
+                        <p class="text-muted small mb-2">
+                            {{ $p->description }}
+                        </p>
                     </div>
-                    <hr>
-                @endfor
             </div>
+            <hr class="mt-0 mb-4" style="margin-left: 166px; max-width: calc(100% - 166px);">
+            @endfor
         </div>
     </div>
 
     <!-- Floating Navigation Buttons (Pojok Kanan Bawah) -->
-    <div class="floating-nav-buttons">
-        <button type="button" class="nav-btn prev-btn" id="prevBtn">
-            <i class="fas fa-chevron-up"></i>
+     <div class="floating-nav-buttons">
+        <button type="button" class="nav-btn prev-btn" id="prevBtnF">
+            <i class="fas fa-chevron-left"></i>
         </button>
-        <button type="button" class="nav-btn next-btn" id="nextBtn">
-            <i class="fas fa-chevron-down"></i>
+        <button type="button" class="nav-btn next-btn" id="nextBtnF">
+            <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>
@@ -178,8 +176,7 @@
         right: 30px;
         z-index: 1000;
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        gap: 12px;
     }
 
     .nav-btn {
@@ -205,61 +202,12 @@
         box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
     }
 
-    .nav-btn:active:not(:disabled) {
-        transform: translateY(0);
-    }
-
     .nav-btn:disabled {
-        opacity: 0.4;
+        opacity: 0.5;
         cursor: not-allowed;
-        border-color: #6c757d;
-        color: #6c757d;
-    }
-
-    /* Styling untuk service card */
-    .service-card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        height: 100%;
-        transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .service-image img {
-        width: 130px;
-        height: 130px;
-        object-fit: cover;
-    }
-
-    .product-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 20px;
-    }
-
-    .product-dots span {
-        width: 30px;
-        height: 4px;
-        background: #ddd;
-        border-radius: 2px;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .product-dots .progress {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background: #0d6efd;
-        width: 0%;
+        border-color: #ccc;
+        color: #ccc;
+        transform: none;
     }
 
     /* Animasi untuk konten */
@@ -291,129 +239,103 @@
             height: 45px;
             font-size: 1rem;
         }
-
-        .service-image img {
-            width: 80px;
-            height: 80px;
-        }
     }
 </style>
 
 <script>
-    // Data facilities dari PHP ke JavaScript
-    const facilities = @json($facility);
-    const visibleCount = 3;
-    let currentIndex = 0;
-    const totalFacilities = facilities.length;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Data facilities dari PHP ke JavaScript
+        const facilities = @json($facility);
+        const visibleCount = 3;
+        let currentIndex = 0;
+        const totalFacilities = facilities.length;
 
-    // Elemen DOM
-    const facilityContainer = document.getElementById('facilityContainer');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+        // Elemen DOM
+        const facilityContainerF = document.getElementById('facilityContainerF');
+        const prevBtnF = document.getElementById('prevBtnF');
+        const nextBtnF = document.getElementById('nextBtnF');
 
-    // Fungsi untuk update tampilan
-    function updateDisplay() {
-        // Kosongkan kontainer
-        facilityContainer.innerHTML = '';
+        // Fungsi untuk update tampilan
+        function updateDisplay() {
+            // Kosongkan kontainer
+            facilityContainerF.innerHTML = '';
 
-        // Hitung indeks akhir
-        const endIndex = Math.min(currentIndex + visibleCount, totalFacilities);
+            // Hitung indeks mulai dan akhir
+            const startIndex = currentIndex;
+            const endIndex = Math.min(currentIndex + visibleCount, totalFacilities);
 
-        // Tambahkan facility items
-        for (let i = currentIndex; i < endIndex; i++) {
-            const facility = facilities[i];
+            // Tambahkan facility items
+            for (let i = startIndex; i < endIndex; i++) {
+                const facility = facilities[i];
 
-            // Pastikan path gambar benar
-            const imageSrc = facility.image.startsWith('http') ? facility.image :
-                facility.image.startsWith('/') ? facility.image : '/' + facility.image;
+                // Buat elemen item
+                const facilityElement = document.createElement('div');
+                facilityElement.className = 'col-lg-8 mx-auto d-flex mb-4 facility-item';
 
-            const facilityElement = document.createElement('div');
-            facilityElement.className = 'col-lg-8 mx-auto d-flex mb-4 facility-item';
-            facilityElement.innerHTML = `
-            <img src="${imageSrc}" width="150" height="100" class="shadow-sm rounded me-3" />
-            <div>
-                <h5 class="fw-bold mb-1">${facility.title}</h5>
-                <p class="text-muted small mb-2">
-                    ${facility.description}
-                </p>
-                <hr>
-            </div>
-        `;
-            facilityContainer.appendChild(facilityElement);
+                facilityElement.innerHTML = `
+                <img src="${facility.image.startsWith('http') ? facility.image : 
+                          facility.image.startsWith('/') ? facility.image : 
+                          '/' + facility.image}" 
+                     width="150" height="100" class="shadow-sm rounded me-3" />
+                <div class="flex-grow-1">
+                    <h6 class="fw-bold mb-1" style="font-size: 15px">${facility.title}</h6>
+                    <p class="text-muted small mb-2">
+                        ${facility.description}
+                    </p>
+                </div>
+            `;
+
+                facilityContainerF.appendChild(facilityElement);
+
+                // Tambahkan garis pemisah jika bukan item terakhir
+                if (i < endIndex - 1) {
+                    const hrElement = document.createElement('hr');
+                    hrElement.className = 'mt-0 mb-4';
+                    hrElement.style.marginLeft = '166px';
+                    hrElement.style.maxWidth = 'calc(100% - 166px)';
+                    facilityContainerF.appendChild(hrElement);
+                }
+            }
+
+            // Update status tombol
+            updateButtonStates();
         }
 
-        // Update status tombol
-        updateButtonStates();
-    }
+        // Fungsi untuk update status tombol
+        function updateButtonStates() {
+            if (!prevBtnF || !nextBtnF) return;
 
-    // Fungsi untuk update status tombol
-    function updateButtonStates() {
-        const hasPrev = currentIndex > 0;
-        const hasNext = (currentIndex + visibleCount) < totalFacilities;
+            prevBtnF.disabled = currentIndex === 0;
+            nextBtnF.disabled = currentIndex + visibleCount >= totalFacilities;
 
-        // Atur disabled state
-        prevBtn.disabled = !hasPrev;
-        nextBtn.disabled = !hasNext;
-    }
-
-    // Fungsi navigasi
-    function navigate(direction) {
-        if (direction === 'up' && currentIndex > 0) {
-            currentIndex = Math.max(0, currentIndex - visibleCount);
-            updateDisplay();
-        } else if (direction === 'down' && (currentIndex + visibleCount) < totalFacilities) {
-            currentIndex = Math.min(totalFacilities - visibleCount, currentIndex + visibleCount);
-            updateDisplay();
+            // Update styling untuk tombol disabled
+            prevBtnF.style.opacity = prevBtnF.disabled ? '0.5' : '1';
+            nextBtnF.style.opacity = nextBtnF.disabled ? '0.5' : '1';
         }
-    }
 
-    // Tambah event listeners
-    prevBtn.addEventListener('click', () => navigate('up'));
-    nextBtn.addEventListener('click', () => navigate('down'));
-
-    // Tambah navigasi dengan keyboard (opsional)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            navigate('up');
-        } else if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            navigate('down');
+        // Fungsi navigasi
+        function navigate(direction) {
+            if (direction === 'prev' && currentIndex > 0) {
+                // Navigasi sebelumnya
+                currentIndex = Math.max(0, currentIndex - visibleCount);
+                updateDisplay();
+            } else if (direction === 'next' && (currentIndex + visibleCount) < totalFacilities) {
+                // Navigasi berikutnya
+                currentIndex = currentIndex + visibleCount;
+                updateDisplay();
+            }
         }
+
+        // Tambah event listeners untuk tombol
+        if (prevBtnF) {
+            prevBtnF.addEventListener('click', () => navigate('prev'));
+        }
+
+        if (nextBtnF) {
+            nextBtnF.addEventListener('click', () => navigate('next'));
+        }
+
+        // Inisialisasi pertama kali
+        updateDisplay();
     });
-
-    // Inisialisasi pertama kali
-    updateButtonStates();
-
-    // Responsif: Sesuaikan posisi tombol pada layar kecil
-    function adjustFloatingButtons() {
-        const floatingButtons = document.querySelector('.floating-nav-buttons');
-        if (window.innerWidth < 768) {
-            floatingButtons.style.bottom = '20px';
-            floatingButtons.style.right = '20px';
-            floatingButtons.style.gap = '6px';
-
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => {
-                btn.style.width = '45px';
-                btn.style.height = '45px';
-                btn.style.fontSize = '1rem';
-            });
-        } else {
-            floatingButtons.style.bottom = '30px';
-            floatingButtons.style.right = '30px';
-            floatingButtons.style.gap = '8px';
-
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => {
-                btn.style.width = '50px';
-                btn.style.height = '50px';
-                btn.style.fontSize = '1.2rem';
-            });
-        }
-    }
-
-    // Panggil fungsi responsif saat load dan resize
-    window.addEventListener('load', adjustFloatingButtons);
-    window.addEventListener('resize', adjustFloatingButtons);
 </script>
