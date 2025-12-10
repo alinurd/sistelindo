@@ -1,4 +1,4 @@
-<section class="services-wrapper py-5 animate-fade-in position-relative">
+<section class="services-wrapper py-5 animate-fade-in">
     <div class="container">
         <div class="row g-5 justify-content-center" id="facilityContainer">
             @php
@@ -32,7 +32,8 @@
         </div>
     </div>
     
-    <div class="floating-nav-buttons d-flex gap-3">
+    <!-- Tombol navigasi di pojok kanan bawah -->
+    <div class="bottom-right-nav-buttons">
         <button type="button" class="nav-btn prev-btn" id="prevBtn">
             <i class="fas fa-chevron-left"></i>
         </button>
@@ -160,45 +161,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     updateDisplay();
-    adjustFloatingButtons();
 });
-
-// Responsif: Sesuaikan posisi tombol
-function adjustFloatingButtons() {
-    const floatingButtons = document.querySelector('.floating-nav-buttons');
-    if (!floatingButtons) return;
-    
-    if (window.innerWidth < 768) {
-        floatingButtons.style.bottom = '15px';
-        floatingButtons.style.right = '15px';
-        
-        const buttons = document.querySelectorAll('.nav-btn');
-        buttons.forEach(btn => {
-            btn.style.width = '45px';
-            btn.style.height = '45px';
-            btn.style.fontSize = '1rem';
-        });
-    } else {
-        floatingButtons.style.bottom = '30px';
-        floatingButtons.style.right = '30px';
-        
-        const buttons = document.querySelectorAll('.nav-btn');
-        buttons.forEach(btn => {
-            btn.style.width = '50px';
-            btn.style.height = '50px';
-            btn.style.fontSize = '1.2rem';
-        });
-    }
-}
-
-window.addEventListener('resize', adjustFloatingButtons);
 </script>
 
 <style>
-    .floating-nav-buttons {
+    .services-wrapper {
+        position: relative;
+        min-height: 400px;
+    }
+    
+    .bottom-right-nav-buttons {
         position: absolute;
-        bottom: 30px;
-        right: 30px;
+        bottom: 20px;
+        right: 20px;
         display: flex;
         gap: 10px;
         z-index: 100;
@@ -215,14 +190,16 @@ window.addEventListener('resize', adjustFloatingButtons);
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         cursor: pointer;
+        font-size: 1.2rem;
     }
     
     .nav-btn:hover:not(:disabled) {
         background-color: #007bff;
         color: white;
         transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
     }
     
     .nav-btn:disabled {
@@ -230,19 +207,50 @@ window.addEventListener('resize', adjustFloatingButtons);
         cursor: not-allowed;
         border-color: #ccc;
         color: #ccc;
+        transform: none;
     }
     
     /* Untuk layar kecil */
     @media (max-width: 768px) {
-        .floating-nav-buttons {
+        .bottom-right-nav-buttons {
             bottom: 15px;
             right: 15px;
+            gap: 8px;
         }
         
         .nav-btn {
             width: 45px;
             height: 45px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    /* Untuk layar sangat kecil */
+    @media (max-width: 576px) {
+        .bottom-right-nav-buttons {
+            bottom: 10px;
+            right: 10px;
+            gap: 5px;
+        }
+        
+        .nav-btn {
+            width: 40px;
+            height: 40px;
             font-size: 1rem;
+        }
+    }
+    
+    /* Untuk layar extra kecil (ponsel) */
+    @media (max-width: 400px) {
+        .bottom-right-nav-buttons {
+            bottom: 8px;
+            right: 8px;
+        }
+        
+        .nav-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
         }
     }
 </style>
