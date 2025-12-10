@@ -28,10 +28,10 @@
     
     <!-- Indicator -->
     <div class="iso-indicators mt-4 text-center" id="isoIndicators">
-        @foreach($iso as $index => $item)
+        {{-- @foreach($iso as $index => $item)
             <span class="iso-indicator-dot {{ $index == 0 ? 'active' : '' }}" 
                   data-index="{{ $index }}"></span>
-        @endforeach
+        @endforeach --}}
     </div>
     
     <!-- Navigation Buttons untuk ISO (di bawah indicators) -->
