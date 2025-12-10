@@ -24,7 +24,8 @@ class CompanyController extends Controller
                                     'mission', 
                                     'service', 
                                     'lisensi',
-'about', 
+                                    'about', 
+                                    'sisko', 
                                 ]);
                                  
         $data = (object) $data;

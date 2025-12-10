@@ -57,6 +57,11 @@
                                 <textarea id="lisensi" class="form-control" placeholder="Company License" 
                                           name="lisensi">{{ old('lisensi', $company['lisensi']) }}</textarea>
                             </div> 
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="sisko">Sistem Komunikasi</label>
+                                <textarea id="sisko" class="form-control" placeholder="Company License" 
+                                          name="sisko">{{ old('sisko', $company['sisko']) }}</textarea>
+                            </div> 
 
                             {{-- Status Toggle --}}
                             <div class="form-group mb-3">
@@ -149,6 +154,7 @@
         CKEDITOR.replace('mission', CKEDITORGlobalOptions);
         CKEDITOR.replace('service', CKEDITORGlobalOptions);
         CKEDITOR.replace('lisensi', CKEDITORGlobalOptions);
+        CKEDITOR.replace('sisko', CKEDITORGlobalOptions);
 
         $('.switch-input').change(function() {
             let my = $(this).attr('id');
@@ -212,6 +218,9 @@
             }
             if(CKEDITOR.instances['lisensi']) {
                 jsonData['lisensi'] = CKEDITOR.instances['lisensi'].getData();
+            }
+            if(CKEDITOR.instances['sisko']) {
+                jsonData['sisko'] = CKEDITOR.instances['sisko'].getData();
             }
 
             // Add CSRF token
