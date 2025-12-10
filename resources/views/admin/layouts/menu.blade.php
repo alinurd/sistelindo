@@ -11,6 +11,11 @@
             'icon' => 'ti ti-window',
         ],
        [
+            'route' => 'admin.master.facilitycore.index',
+            'title' => 'Service Core',
+            'icon' => 'ti ti-window',
+        ],
+       [
             'route' => 'admin.master.line.index',
             'title' => 'Line of Master',
             'icon' => 'ti ti-window',
