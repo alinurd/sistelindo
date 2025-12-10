@@ -11,33 +11,34 @@ class CompanyController extends Controller
     protected $prefixRoute = 'admin.master.company.';
     public function index()
     {
-        $data['data'] = Company::get()->toarray();
+        $data['data'] = Company::get();
+        $data['prefixRoute'] = $this->prefixRoute;
+        $data['title'] = 'About Us';
         return view("admin.master.company.index", $data);
     }
 
     public function create(Request $request)
     { 
 
-        $data = $request->only(['id',  'image',
+        $data = $request->only(['id', 'sort', 'status', 'image',
                                     'review', 
                                     'vision', 
                                     'mission', 
                                     'service', 
-                                    'lisensi',
-'about', 
+                                    'lisensi', 
                                 ]);
                                  
         $data = (object) $data;
 
-        // if($data->id == 0){
-        //     $sort = Company::where('sort',$data->sort)->count();
-        // } else {
-        //     $sort = Company::where('sort',$data->sort)->where('id','!=',$data->id)->count();
-        // }
+        if($data->id == 0){
+            $sort = Company::where('sort',$data->sort)->count();
+        } else {
+            $sort = Company::where('sort',$data->sort)->where('id','!=',$data->id)->count();
+        }
 
-        // if($sort != 0){
-        //     return response()->json(['status'=> 'error', 'message' => 'Sort sudah dipakai']);
-        // } else {
+        if($sort != 0){
+            return response()->json(['status'=> 'error', 'message' => 'Sort sudah dipakai']);
+        } else {
             if(!empty($data->image)) {
                 $data->image = str_replace(url('/').'/', '', $data->image);
             }
@@ -49,7 +50,7 @@ class CompanyController extends Controller
                 Company::where('id', $data->id)->update($dataSave);
             }
             return response()->json(['status'=>'success', 'message' => 'Data Berhasil disimpan']);
-        // }
+        }
     }
 
     public function delete($id)
