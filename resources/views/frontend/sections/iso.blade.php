@@ -25,17 +25,10 @@
             @endif
         </div>
     </div>
-    
-    <!-- Indicator -->
-    <div class="iso-indicators mt-4 text-center" id="isoIndicators">
-        {{-- @foreach($iso as $index => $item)
-            <span class="iso-indicator-dot {{ $index == 0 ? 'active' : '' }}" 
-                  data-index="{{ $index }}"></span>
-        @endforeach --}}
-    </div>
+  
     
     <!-- Navigation Buttons untuk ISO (di bawah indicators) -->
-    <div class="iso-nav-buttons-container mt-3 text-center" id="isoNavButtonsContainer">
+    <div class="iso-nav-buttons-container mt-1 mb-3 text-center" id="isoNavButtonsContainer">
         <button type="button" class="iso-nav-btn iso-prev-btn" id="isoPrevBtn">
             <i class="fas fa-chevron-left"></i>
         </button>

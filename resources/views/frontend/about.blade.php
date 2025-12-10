@@ -193,17 +193,116 @@
 
 
     {{-- TIMELINE --}}
-    <section class="text-center mt-5 px-4">
-        <span class="text-title mb-3 animate-fade-in mt-5 text-center">31 Years Journey of Sistelindo in <br><span
-                class="text-highlight"><strong>Cyberspace Industry</strong></span></span>
+  <section class="text-center mt-5 px-4">
+    <span class="text-title mb-3 animate-fade-in mt-5 text-center">
+        31 Years Journey of Sistelindo in <br>
+        <span class="text-highlight"><strong>Cyberspace Industry</strong></span>
+    </span>
 
-        <div class="container animate-fade-in stagger-delay-1">
-            <img src="{{ asset('assets/img/material/4.jpg') }}" class="mx-auto w-[600px] rounded" alt="Timeline"
-                style="width: 1000px; height: 1100px;" />
-
-
+    <div class="container animate-fade-in stagger-delay-1">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Container untuk gambar timeline -->
+                <div class="timeline-image-container">
+                    <img src="{{ asset('assets/img/material/4.jpg') }}" 
+                         class="img-fluid timeline-image " 
+                         alt="Sistelindo Timeline - 31 Years Journey"
+                         loading="lazy">
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+/* Styling untuk timeline */
+.timeline-image-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.timeline-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+ 
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .timeline-image-container {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 992px) {
+    .timeline-image-container {
+        max-width: 800px;
+    }
+    
+    .text-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-image-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .text-title {
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+    
+    section {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .text-title {
+        font-size: 1.4rem;
+    }
+    
+    .timeline-image-container {
+        padding: 0 5px;
+    }
+    
+    .timeline-image {
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .text-title {
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 0.5rem 0;
+    }
+}
+
+/* Untuk device dengan orientasi landscape */
+@media (max-height: 600px) and (orientation: landscape) {
+    .timeline-image-container {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .timeline-image {
+        max-height: 380px;
+    }
+}
+ 
+</style>
+ 
 
 
     {{-- ISO QUALITY MANAGEMENT SYSTEM --}}
