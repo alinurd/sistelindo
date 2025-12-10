@@ -8,6 +8,7 @@ use App\Models\Master\Banner;
 use App\Models\Master\Company;
 use App\Models\Master\Customer;
 use App\Models\Master\Facility;
+use App\Models\Master\FacilityCore;
 use App\Models\Master\Gallery;
 use App\Models\Master\Iso;
 use App\Models\Master\Line;
@@ -34,7 +35,7 @@ class LanddingController extends Controller
         $data['data'] =  Company::get()->first();
         $data['banner'] = Banner::where('status', 1)->orderby('sort', 'asc')->get();
         $data['iso'] = Iso::where('status', 1)->orderby('sort', 'asc')->get();
-        $data['product'] = Product::where('status', 1)->orderby('sort', 'asc')->get();
+        $data['product'] = FacilityCore::where('status', 1)->orderby('sort', 'asc')->get();
 
 
         return view('frontend.about', $data);
