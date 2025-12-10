@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Master\AdvantageController;
 use App\Http\Controllers\Admin\Master\BannerController;
 use App\Http\Controllers\Admin\Master\CompanyController;
 use App\Http\Controllers\Admin\Master\CustomerController;
@@ -97,6 +98,15 @@ Route::prefix('/master')->name('master.')->group(function () {
     // ==== iso Routes ====
     Route::prefix('/iso')->name('iso.')->group(function () {
         $localClass = IsoController::class;
+        Route::get('/', [$localClass, 'index'])->name('index');
+        Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
+        Route::post('/submit', [$localClass, 'create'])->name('create');
+        Route::get('/delete/{id}', [$localClass, 'delete'])->name('delete');
+        Route::get('/multidelete', [$localClass, 'multi_delete'])->name('multi_delete');
+        Route::get('/status/{id}', [$localClass, 'editstatus'])->name('status');
+    });
+    Route::prefix('/advantage')->name('advantage.')->group(function () {
+        $localClass = AdvantageController::class;
         Route::get('/', [$localClass, 'index'])->name('index');
         Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
         Route::post('/submit', [$localClass, 'create'])->name('create');

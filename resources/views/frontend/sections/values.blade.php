@@ -3,7 +3,7 @@
 
         <!-- TOP VALUES -->
         <div class="row justify-content-center text-center mb-5 g-3 bg-light">
-            @foreach ($lineMarket->take(3) as $p)
+            @foreach ($advantage->take(3) as $p)
                 <div class="col-md-6 col-lg-3 p-3">
                     <div class="text-center ">
                         <div class="service-image mb-3">
@@ -14,16 +14,16 @@
                 </div>
             @endforeach
 
-            @if ($lineMarket->count() > 3)
-                {{-- <div class="lineMarket-dots" id="lineMarket-dots"></div> --}}
+            @if ($advantage->count() > 3)
+                {{-- <div class="advantage-dots" id="advantage-dots"></div> --}}
             @endif
         </div>
 
-        <!-- JavaScript untuk slider lineMarket -->
-        @if ($lineMarket->count() > 3)
+        <!-- JavaScript untuk slider advantage -->
+        @if ($advantage->count() > 3)
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
-                    const productData = @json($lineMarket);
+                    const productData = @json($advantage);
                     const dotsWrap = document.getElementById("product-dots");
                     let currentSlide = 0;
                     let autoplayTimer;

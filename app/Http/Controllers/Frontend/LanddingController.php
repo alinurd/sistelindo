@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master\Advantage;
 use App\Models\Master\Banner;
 use App\Models\Master\Company;
 use App\Models\Master\Customer;
@@ -20,7 +21,7 @@ class LanddingController extends Controller
     {
         $data['banner'] = Banner::where('status', 1)->orderby('sort', 'asc')->get();
         $data['product'] = Product::where('status', 1)->orderby('sort', 'asc')->get();
-        $data['lineMarket'] = Line::where('status', 1)->orderby('sort', 'asc')->get();
+        $data['advantage'] = Advantage::where('status', 1)->orderby('sort', 'asc')->get();
         $data['facility'] = Facility::where('status', 1)->orderby('sort', 'asc')->get();
         $data['company'] = Company::where('status', 1)->orderby('sort', 'asc')->first();
         $data['customer'] = Customer::where('status', 1)->orderby('sort', 'asc')->get();
