@@ -13,7 +13,7 @@
                 </p> 
             @endif
         </div>
-        <div class="col-lg-5 text-center " id="isoImage">
+        <div class="col-lg-5 text-center" id="isoImage">
             <!-- Gambar akan diupdate via JavaScript -->
             @if(count($iso) > 0)
                 @php $p = $iso[0]; @endphp
@@ -21,7 +21,6 @@
                     <img src="{{ asset('assets/img/material/4.jpg')}}" 
                          class="rounded shadow w-100 h-auto "
                          style="max-width: 350px; height: 220px;">
-                     
                 </div>
             @endif
         </div>
@@ -45,8 +44,7 @@
         </button>
     </div>
 </section>
-
-<style>
+ <style>
 /* Container untuk tombol navigasi */
 .iso-nav-buttons-container {
     display: flex;
@@ -56,13 +54,13 @@
     margin-bottom: 20px;
 }
 
-/* Tombol navigasi ISO */
+/* Tombol navigasi ISO - TAMPIL SEPERTI AWAL */
 .iso-nav-btn {
-    width: 50px;
+    width: 50px; /* Tambahkan width yang sama dengan height */
     height: 50px;
     border-radius: 50%;
     background: white;
-    border: 2px solid #0d6efd;
+    border: 2px solid #0d6efd; /* Border biru seperti awal */
     color: #0d6efd;
     display: flex;
     align-items: center;
@@ -73,22 +71,33 @@
     cursor: pointer;
 }
 
-/* .iso-nav-btn:hover:not(:disabled) {
-    background: #0d6efd;
-    color: white;
+/* Hanya ubah saat hover: border tetap biru, background berubah */
+.iso-nav-btn:hover:not(:disabled) {
+    background: #0d6efd; /* Background biru saat hover */
+    color: white; /* Ikon putih saat hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
-} */
+    /* Border tetap seperti awal, tidak diubah */
+}
 
-.iso-nav-btn:active:not(:disabled) {
-    transform: translateY(0);
+/* Untuk state focus dan active - jaga border tetap */
+.iso-nav-btn:focus,
+.iso-nav-btn:active {
+    background: #0d6efd;
+    color: white;
+    border: 2px solid #0d6efd; /* Tetap ada border biru */
+    outline: none; /* Hilangkan outline default */
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25); /* Shadow biru lembut */
 }
 
 .iso-nav-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
-    border-color: #6c757d;
-    color: #6c757d;
+    border-color: #ccc; /* Border abu-abu saat disabled */
+    color: #ccc;
+    background: white;
+    transform: none;
+    box-shadow: none;
 }
 
 /* Indicators */
@@ -110,13 +119,14 @@
 }
 
 .iso-indicator-dot.active {
-    background: #0d6efd;
+    background: #0d6efd; /* Kembalikan ke biru */
     transform: scale(1.2);
 }
 
 .iso-indicator-dot:hover {
     background: #0d6efd;
     transform: scale(1.1);
+    
 }
 
 /* Animasi untuk konten ISO */
@@ -192,8 +202,8 @@
         height: 10px;
     }
 }
+ 
 </style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // ============================
@@ -244,11 +254,10 @@ document.addEventListener('DOMContentLoaded', function() {
         isoImage.innerHTML = `
             <div class="position-relative d-inline-block">
                 <img src="${imageSrc}" 
-                     class="rounded  w-100 h-auto  iso-image"
+                     class="rounded w-100 h-auto iso-image"
                      style="max-width: 350px; height: 220px; object-fit: cover;"
                      alt="${currentIso.title}"
                      onerror="this.src='https://placehold.co/350x220?text=ISO+Image'">
-                
             </div>
         `;
         
@@ -283,6 +292,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         isoPrevBtn.disabled = !hasPrev;
         isoNextBtn.disabled = !hasNext;
+        
+        // Tambahkan style untuk disabled state
+        // if (isoPrevBtn.disabled) {
+        //     isoPrevBtn.style.opacity = '0.4';
+        //     isoPrevBtn.style.cursor = 'not-allowed';
+        // }
+        // if (isoNextBtn.disabled) {
+        //     isoNextBtn.style.opacity = '0.4';
+        //     isoNextBtn.style.cursor = 'not-allowed';
+        // }
     }
 
     // Fungsi navigasi ISO
@@ -309,8 +328,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================
     
     // Tombol navigasi
-    isoPrevBtn.addEventListener('click', () => navigateIso('prev'));
-    isoNextBtn.addEventListener('click', () => navigateIso('next'));
+    if (isoPrevBtn) {
+        isoPrevBtn.addEventListener('click', () => navigateIso('prev'));
+    }
+    if (isoNextBtn) {
+        isoNextBtn.addEventListener('click', () => navigateIso('next'));
+    }
     
     // Indicator dots
     indicatorDots.forEach(dot => {
@@ -334,55 +357,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Fokus ke section ISO saat di-scroll ke sana
-        isoSection.addEventListener('mouseenter', () => {
-            isoSection.focus();
-        });
-        
         // Set tabindex agar bisa difokus
         isoSection.setAttribute('tabindex', '-1');
-    }
-    
-    // Auto-slide (opsional, bisa diaktifkan jika diinginkan)
-    let autoSlideInterval;
-    
-    function startAutoSlide(interval = 5000) {
-        if (totalIso > 1) {
-            autoSlideInterval = setInterval(() => {
-                if (isoCurrentIndex < totalIso - 1) {
-                    navigateIso('next');
-                } else {
-                    isoCurrentIndex = 0;
-                    updateIsoDisplay();
-                }
-            }, interval);
-        }
-    }
-    
-    function stopAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-    }
-    
-    // Hentikan auto-slide saat hover
-    if (isoSection) {
-        isoSection.addEventListener('mouseenter', stopAutoSlide);
-        isoSection.addEventListener('mouseleave', () => {
-            if (isoData.length > 1) {
-                // startAutoSlide(5000); // Aktifkan jika ingin auto-slide
-            }
-        });
     }
     
     // Inisialisasi tampilan
     if (isoData.length > 0) {
         updateIsoDisplay();
-        // startAutoSlide(5000); // Aktifkan jika ingin auto-slide
     } else {
         // Sembunyikan navigasi jika tidak ada data
-        document.getElementById('isoIndicators').style.display = 'none';
-        document.getElementById('isoNavButtonsContainer').style.display = 'none';
+        if (document.getElementById('isoIndicators')) {
+            document.getElementById('isoIndicators').style.display = 'none';
+        }
+        if (document.getElementById('isoNavButtonsContainer')) {
+            document.getElementById('isoNavButtonsContainer').style.display = 'none';
+        }
     }
 });
 
