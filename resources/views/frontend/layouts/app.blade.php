@@ -1,6 +1,7 @@
 @php
     $setting = AppSetting::first();
-@endphp
+    // dd($setting);
+    @endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Sistelindo' }}</title>
         <link rel="icon" type="image/x-icon" href="{{ $setting?->favicon ? asset($setting->favicon) : asset('/storage/photos/1/sistelindo-favicon.png') }}" />
+
+
+
+            <meta name="description" content="{{ $description ?? $setting?->meta_description ?? 'Sistelindo ' }}">
+
+    <!-- OPEN GRAPH (WA, FB, IG) -->
+    <meta property="og:title" content="{{ $title ?? $setting?->site_title ?? 'Sistelindo' }}">
+    <meta property="og:description" content="{{ $description ?? $setting?->meta_description ?? 'Sistelindo ' }}">
+    <meta property="og:image" content="{{ asset($setting?->share_image ?? 'storage/photos/1/sistelindo-favicon.png') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title ?? $setting?->site_title ?? 'Sistelindo' }}">
+    <meta name="twitter:description" content="{{ $description ?? $setting?->meta_description ?? 'Sistelindo ' }}">
+ 
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
