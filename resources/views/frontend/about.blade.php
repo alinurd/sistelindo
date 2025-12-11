@@ -140,12 +140,12 @@
         <div class="animate-fade-in stagger-delay-3">
             <div class="animate-fade-in stagger-delay-1">
                 <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-5">
-                    <p class="text-muted mx-auto">
-                        {!! $data['mission'] !!}
-                    </p>
+                    <div class="col-lg-8 col-md-5">
+                        <p class="text-muted mx-auto">
+                            {!! $data['mission'] !!}
+                        </p>
+                    </div>
                 </div>
-            </div> 
             </div>
         </div>
     </section>
@@ -193,116 +193,113 @@
 
 
     {{-- TIMELINE --}}
-  <section class="text-center mt-5 px-4">
-    <span class="text-title mb-3 animate-fade-in mt-5 text-center">
-        31 Years Journey of Sistelindo in <br>
-        <span class="text-highlight"><strong>Cyberspace Industry</strong></span>
-    </span>
+    <section class="text-center mt-5 px-4">
+        <span class="text-title mb-3 animate-fade-in mt-5 text-center">
+            31 Years Journey of Sistelindo in <br>
+            <span class="text-highlight"><strong>Cyberspace Industry</strong></span>
+        </span>
 
-    <div class="container animate-fade-in stagger-delay-1">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <!-- Container untuk gambar timeline -->
-                <div class="timeline-image-container">
-                    <img src="{{ asset('assets/img/material/4.jpg') }}" 
-                         class="img-fluid timeline-image " 
-                         alt="Sistelindo Timeline - 31 Years Journey"
-                         loading="lazy">
+        <div class="container animate-fade-in stagger-delay-1">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <!-- Container untuk gambar timeline -->
+                    <div class="timeline-image-container">
+                        <img src="{{ asset('assets/img/material/4.jpg') }}" class="img-fluid timeline-image "
+                            alt="Sistelindo Timeline - 31 Years Journey" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-/* Styling untuk timeline */
-.timeline-image-container {
-    position: relative;
-    margin: 0 auto;
-    max-width: 1000px;
-    overflow: hidden;
-}
+    <style>
+        /* Styling untuk timeline */
+        .timeline-image-container {
+            position: relative;
+            margin: 0 auto;
+            max-width: 1000px;
+            overflow: hidden;
+        }
 
-.timeline-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
+        .timeline-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
 
- 
 
-/* Responsive styles */
-@media (max-width: 1200px) {
-    .timeline-image-container {
-        max-width: 900px;
-    }
-}
 
-@media (max-width: 992px) {
-    .timeline-image-container {
-        max-width: 800px;
-    }
-    
-    .text-title {
-        font-size: 1.8rem;
-    }
-}
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .timeline-image-container {
+                max-width: 900px;
+            }
+        }
 
-@media (max-width: 768px) {
-    .timeline-image-container {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-    
-    .text-title {
-        font-size: 1.6rem;
-        line-height: 1.4;
-    }
-    
-    section {
-        padding: 1rem 0;
-    }
-}
+        @media (max-width: 992px) {
+            .timeline-image-container {
+                max-width: 800px;
+            }
 
-@media (max-width: 576px) {
-    .text-title {
-        font-size: 1.4rem;
-    }
-    
-    .timeline-image-container {
-        padding: 0 5px;
-    }
-    
-    .timeline-image {
-        border-radius: 8px;
-    }
-}
+            .text-title {
+                font-size: 1.8rem;
+            }
+        }
 
-@media (max-width: 400px) {
-    .text-title {
-        font-size: 1.3rem;
-    }
-    
-    section {
-        padding: 0.5rem 0;
-    }
-}
+        @media (max-width: 768px) {
+            .timeline-image-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
 
-/* Untuk device dengan orientasi landscape */
-@media (max-height: 600px) and (orientation: landscape) {
-    .timeline-image-container {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-    
-    .timeline-image {
-        max-height: 380px;
-    }
-}
- 
-</style>
- 
+            .text-title {
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
+
+            section {
+                padding: 1rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .text-title {
+                font-size: 1.4rem;
+            }
+
+            .timeline-image-container {
+                padding: 0 5px;
+            }
+
+            .timeline-image {
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .text-title {
+                font-size: 1.3rem;
+            }
+
+            section {
+                padding: 0.5rem 0;
+            }
+        }
+
+        /* Untuk device dengan orientasi landscape */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .timeline-image-container {
+                max-height: 400px;
+                overflow-y: auto;
+            }
+
+            .timeline-image {
+                max-height: 380px;
+            }
+        }
+    </style>
+
 
 
     {{-- ISO QUALITY MANAGEMENT SYSTEM --}}
@@ -314,9 +311,8 @@
         <h2 class="text-3xl font-bold text-[#003366] mb-12 animate-fade-in">
             Core Services: Internet Service Provider <br>
             and System Integrator
-        </h2>
-        <br><br>
-        <div class="container position-relative">
+        </h2> 
+        <div class="container mt-5">
             <div class="row justify-content-center g-4" id="productContainer">
                 @php
                     $visibleCount = 3;
@@ -341,23 +337,23 @@
                     </div>
                 @endfor
 
-                
-            </div> 
 
-             
- 
+            </div>
+
+           <div class="d-flex justify-content-end mt-4">
+            <div class="bottom-right-nav-buttons">
+                <button type="button" class="nav-btn prev-btn" id="productPrevBtnDesktop">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="nav-btn next-btn" id="productNextBtnDesktop">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
-        <br><br>
-        <div class="bottom-right-nav-buttons">
-        <button type="button" class="nav-btn prev-btn" id="productPrevBtnDesktop">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button type="button" class="nav-btn next-btn" id="productNextBtnDesktop">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
+
+        </div>
     </section>
- 
+
     <script>
         // Data products dari PHP ke JavaScript
         const products = @json($product);
@@ -512,89 +508,3 @@
         });
     </script>
 @endsection
-<style>
- 
-    .bottom-right-nav-buttons {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        gap: 10px;
-        z-index: 100;
-    }
-    
-    .nav-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #007bff;
-        background-color: white;
-        color: #007bff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-    
-    .nav-btn:hover:not(:disabled) {
-        background-color: #007bff;
-        color: white;
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
-    }
-    
-    .nav-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        border-color: #ccc;
-        color: #ccc;
-        transform: none;
-    }
-    
-    /* Untuk layar kecil */
-    @media (max-width: 768px) {
-        .bottom-right-nav-buttons {
-            bottom: 15px;
-            right: 15px;
-            gap: 8px;
-        }
-        
-        .nav-btn {
-            width: 45px;
-            height: 45px;
-            font-size: 1.1rem;
-        }
-    }
-    
-    /* Untuk layar sangat kecil */
-    @media (max-width: 576px) {
-        .bottom-right-nav-buttons {
-            bottom: 10px;
-            right: 10px;
-            gap: 5px;
-        }
-        
-        .nav-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
-        }
-    }
-    
-    /* Untuk layar extra kecil (ponsel) */
-    @media (max-width: 400px) {
-        .bottom-right-nav-buttons {
-            bottom: 8px;
-            right: 8px;
-        }
-        
-        .nav-btn {
-            width: 35px;
-            height: 35px;
-            font-size: 0.9rem;
-        }
-    }
-</style>

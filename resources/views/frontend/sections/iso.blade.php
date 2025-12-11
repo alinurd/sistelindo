@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update gambar dengan animasi
         isoImage.classList.add('iso-image-animate');
-        const imageSrc = '{{ asset('assets/img/material/3.png')}}';
+        const imageSrc = `${currentIso.image}`;
             
         isoImage.innerHTML = `
             <div class="position-relative d-inline-block">
