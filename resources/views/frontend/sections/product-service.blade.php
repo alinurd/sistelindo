@@ -33,7 +33,8 @@
             </div>
         </div>
 
-        <!-- Floating Navigation Buttons (Pojok Kanan Bawah) -->
+                   <div class="d-flex justify-content-end mt-4">
+
         <div class="bottom-right-nav-buttons">
             <button type="button" class="nav-btn prev-btn" id="prevBtnF">
                 <i class="fas fa-chevron-left"></i>
@@ -42,144 +43,10 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
+        </div>
     </div>
 </section>
-
-<style>
-    /* Floating Navigation Buttons Styling */
-    .bottom-right-nav-buttons {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        gap: 10px;
-        z-index: 100;
-    }
-    
-    .nav-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #007bff;
-        background-color: white;
-        color: #007bff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-    
-    .nav-btn:hover:not(:disabled) {
-        background-color: #007bff;
-        color: white;
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
-    }
-    
-    .nav-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        border-color: #ccc;
-        color: #ccc;
-        transform: none;
-    }
-
-    /* Animasi untuk konten */
-    .facility-item {
-        animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Style untuk gambar */
-    .facility-item img {
-        object-fit: cover;
-        min-width: 300px;
-        border: 1px solid #eaeaea;
-        transition: transform 0.3s ease;
-    }
-
-    .facility-item img:hover {
-        transform: scale(1.02);
-    }
-
-    /* Responsive */
-    @media (max-width: 1200px) {
-        .facility-item img {
-            width: 400px;
-            height: 220px;
-            min-width: 400px;
-        }
-        
-        hr {
-            margin-left: 180px !important;
-            max-width: calc(100% - 180px) !important;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .facility-item {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .facility-item img {
-            width: 100%;
-            max-width: 500px;
-            height: 200px;
-            min-width: auto;
-            margin-bottom: 20px;
-            margin-right: 0 !important;
-        }
-        
-        hr {
-            margin-left: 0 !important;
-            max-width: 100% !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .bottom-right-nav-buttons {
-            position: relative;
-            bottom: auto;
-            right: auto;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .nav-btn {
-            width: 45px;
-            height: 45px;
-            font-size: 1rem;
-        }
-        
-        .facility-item img {
-            width: 100%;
-            height: 200px;
-            max-width: 100%;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .facility-item img {
-            height: 180px;
-        }
-    }
-</style>
-
+ 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Data facilities dari PHP ke JavaScript
