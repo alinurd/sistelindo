@@ -37,92 +37,119 @@
         </div>
     </section>
 
-
     <section class="mt-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 animate-slide-left stagger-delay-1">
-                    <img src="{{ asset('assets/img/material/sistelindo-internet-solution-01.png') }}"
-                        class="rounded-lg  object-cover w-100 h-auto hover-grow" alt=""
-                        style="max-width: 450px; height: 330px;">
+            <div class="row align-items-center" style="margin-left: 100px">
+                <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
+                    <!-- Gambar di kiri -->
+                    <div class="d-flex justify-content-center justify-content-lg-start">
+                        <img src="{{ asset('assets/img/material/sistelindo-internet-solution-01.png') }}"
+                            class="rounded-lg hover-grow" alt=""
+                            style="width: 250px; height: 300px; object-fit: cover;">
+                    </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1 animate-slide-right stagger-delay-2">
-                    <span class="text-title ">Sistelindo <span class="text-highlight"><strong>Internet
-                                Solution</strong></span></span>
-                    <span class="" style="font-size: 12px; color: #064b90">High Quality Dedication Internet</span>
-                    <p class="text-muted mt-3">
-                        Welcome to PT Sistelindo Mitralintas (referred to as
-                        Sistelindo) - a distinguished service provider offering a
-                        comprehensive range of internet, data communication,
-                        and value-added network services.
+
+                <div class="col-lg-9 col-md-7 animate-slide-right stagger-delay-2 mt-4 mt-md-0">
+                    <!-- Judul -->
+                    <h2 class="text-title mb-1">Sistelindo <span class="text-highlight">Internet Solution</span></h2>
+
+                    <!-- Subtitle -->
+                    <p class="text-muted mb-3" style="font-size: 14px; color: #064b90; font-weight: 500;">
+                        High Quality Dedicated Internet
                     </p>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p1.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    Internet II
-                                </p>
+
+                    <!-- Deskripsi -->
+                    <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                        Consistently high-quality connection performance delivers fast upload and download speeds,
+                        as well as optimal service quality. This is a priority network that customers need to
+                        support their core business applications.
+                    </p>
+
+                    <!-- Grid fitur dalam 2 kolom -->
+                    <div class="row">
+                        <!-- Kolom kiri -->
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p1.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        Internet 1K
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p2.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        Layanan Internet untuk akses jaringan
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p3.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        Bandwidth 1:1
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p2.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    Layanan Internet Untuk Akses Jaringan
-                                </p>
+                        <!-- Kolom kanan -->
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p3.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        Monitoring Bandwidth Multi Router Traffic
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p3.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    Bandwidth 1:1
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p3.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    Monitor Bandwidth Multi Router Trafic
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p4.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    4 IP Public
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex mb-4">
-                            <img src="{{ asset('assets/img/material/p6.png') }}" width="50"
-                                class="shadow-sm rounded me-3" />
-                            <div>
-                                <p class="text-muted small mb-2">
-                                    Static Protocol Routing
-                                </p>
-                            </div>
-                        </div>
 
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p4.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        4 IP Public
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <img src="{{ asset('assets/img/material/p6.png') }}" width="40" height="40"
+                                        class="shadow-sm rounded">
+                                </div>
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.95rem; font-weight: 500; color: #333;">
+                                        Static Protocol Routing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     @include('frontend.sections.line-of')
     @include('frontend.sections.product-service')
-
-
-
-
-    
 @endsection
