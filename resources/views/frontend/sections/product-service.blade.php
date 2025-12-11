@@ -1,4 +1,4 @@
-<section class="py-5 animate-fade-in">
+<section class=" animate-fade-in">
     <div class="container">
         <span class="text-title mb-3 animate-fade-in mt-5 mb-5 text-center">Product and <span class="text-highlight"><strong>Service
                  </strong></span></span>

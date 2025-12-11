@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <section class="mt-5">
+    <section class="mt-5 mb-5">
         <div class="container">
             <div class="row align-items-center" style="margin-left: 100px">
                 <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">

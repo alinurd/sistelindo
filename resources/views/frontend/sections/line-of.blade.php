@@ -1,4 +1,4 @@
-<section class="text-center mb-10 px-2 mt-3">
+<section class="text-center  px-2 mt-3">
     <h2 class="text-title mb-3 animate-fade-in">Line of <span class="text-highlight">Market Industry</span></h2>
 
     <div class="container">
