@@ -428,8 +428,8 @@
             const hasNext = (currentIndex + visibleCount) < totalProducts;
 
             // Update semua tombol (desktop dan mobile)
-            const allPrevButtons = document.querySelectorAll('.product-prev-btn');
-            const allNextButtons = document.querySelectorAll('.product-next-btn');
+            const allPrevButtons = document.querySelectorAll('.prev-btn');
+            const allNextButtons = document.querySelectorAll('.next-btn');
 
             allPrevButtons.forEach(btn => {
                 btn.disabled = !hasPrev;
