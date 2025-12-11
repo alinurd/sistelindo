@@ -3,14 +3,16 @@
 
     <div class="container">
         <div class="row justify-content-center g-4" id="marketContainer">
+            {{-- {{dd($lineMarket)}} --}}
             @foreach ($lineMarket->take(3) as $p)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                        <div class="square-image-container mb-3">
-                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="square-image rounded-circle">
+                        <div class="square-image-container">
+                            <img src="{{ asset('storage/photos/1/line/sistelindo-line-of-market-01.png') }}" alt="{{ $p->title }}" >
+                                                     <p class="small text-center mt-4">{!! $p->description !!}</p>
+
                         </div>
-                        <p class="small text-center">{!! $p->description !!}</p>
-                    </div>
+                     </div>
                 </div>
             @endforeach
         </div>
