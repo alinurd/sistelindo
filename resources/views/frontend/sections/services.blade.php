@@ -30,16 +30,18 @@
                 </div>
             @endfor
         </div>
-    </div>
-    
-    <!-- Tombol navigasi di pojok kanan bawah -->
-    <div class="bottom-right-nav-buttons">
-        <button type="button" class="nav-btn prev-btn" id="prevBtn">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button type="button" class="nav-btn next-btn" id="nextBtn">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+        
+        <!-- Tombol navigasi di dalam container -->
+        <div class="d-flex justify-content-end mt-4">
+            <div class="bottom-right-nav-buttons">
+                <button type="button" class="nav-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="nav-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -170,13 +172,11 @@ document.addEventListener('DOMContentLoaded', function() {
         min-height: 400px;
     }
     
+    /* Tombol navigasi dalam container */
     .bottom-right-nav-buttons {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
         display: flex;
         gap: 10px;
-        z-index: 100;
+        margin-right: 20px;
     }
     
     .nav-btn {
@@ -210,11 +210,10 @@ document.addEventListener('DOMContentLoaded', function() {
         transform: none;
     }
     
-    /* Untuk layar kecil */
+    /* Responsif untuk layar kecil */
     @media (max-width: 768px) {
         .bottom-right-nav-buttons {
-            bottom: 15px;
-            right: 15px;
+            margin-right: 15px;
             gap: 8px;
         }
         
@@ -225,11 +224,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    /* Untuk layar sangat kecil */
     @media (max-width: 576px) {
         .bottom-right-nav-buttons {
-            bottom: 10px;
-            right: 10px;
+            margin-right: 10px;
             gap: 5px;
         }
         
@@ -240,11 +237,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    /* Untuk layar extra kecil (ponsel) */
     @media (max-width: 400px) {
         .bottom-right-nav-buttons {
-            bottom: 8px;
-            right: 8px;
+            margin-right: 8px;
         }
         
         .nav-btn {
@@ -252,5 +247,20 @@ document.addEventListener('DOMContentLoaded', function() {
             height: 35px;
             font-size: 0.9rem;
         }
+    }
+    
+    /* Untuk zoom ekstrem */
+    @media screen and (max-width: 3000px) {
+        .nav-btn {
+            width: clamp(35px, 5vw, 50px);
+            height: clamp(35px, 5vw, 50px);
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
+        }
+    }
+    
+    /* Container untuk tombol agar tidak overflow */
+    .container {
+        position: relative;
+        overflow: visible;
     }
 </style>
