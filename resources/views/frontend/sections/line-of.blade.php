@@ -1,18 +1,16 @@
-<section class="text-center mb-24 px-4 mt-5" id="marketIndustrySection">
+ <section class="text-center mb-24 px-4 mt-5" id="marketIndustrySection">
     <span class="text-title mb-3 animate-fade-in mt-5 text-center">Line of <span class="text-highlight"><strong>Market Industry</strong></span></span>
 
     <div class="container">
         <div class="row justify-content-center g-4" id="marketContainer">
-            {{-- {{dd($lineMarket)}} --}}
             @foreach ($lineMarket->take(3) as $p)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                        <div class="square-image-container">
-                            <img src="{{ asset('storage/photos/1/line/sistelindo-line-of-market-01.png') }}" alt="{{ $p->title }}" >
-                                                     <p class="small text-center mt-4">{!! $p->description !!}</p>
-
+                        <div class="square-image-container mb-3">
+                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="square-image">
                         </div>
-                     </div>
+                        <p class="small text-center mt-2">{!! $p->description !!}</p>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -68,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
             colDiv.className = 'col-12 col-md-6 col-lg-4';
             colDiv.innerHTML = `
                 <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                    <div class="square-image-container">
-                        <img src="${imageSrc}" alt="${market.title || ''}" >
-                        <p class="small text-center mt-4">${market.description || ''}</p>
+                    <div class="square-image-container mb-3">
+                        <img src="${imageSrc}" alt="${market.title || ''}" class="square-image">
                     </div>
+                    <p class="small text-center mt-2">${market.description || ''}</p>
                 </div>
             `;
             
@@ -158,6 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
         height: 150px;
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px; /* Jika ingin sudut melengkung */
+        background-color: #f8f9fa; /* Background jika gambar transparan */
     }
     
     /* Gambar bujur sangkar */
@@ -165,6 +168,16 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
+    }
+    
+    /* Jika ingin gambar lingkaran */
+    .square-image-container.circle {
+        border-radius: 50%;
+    }
+    
+    .square-image-container.circle .square-image {
+        border-radius: 50%;
     }
     
     /* Tombol navigasi */
@@ -268,5 +281,18 @@ document.addEventListener('DOMContentLoaded', function() {
             height: clamp(35px, 5vw, 50px);
             font-size: clamp(0.8rem, 1.2vw, 1rem);
         }
+    }
+    
+    /* Memastikan deskripsi tidak overflow */
+    .small.text-center {
+        max-height: 100px;
+        overflow-y: auto;
+        word-wrap: break-word;
+    }
+    
+    /* Hover effect untuk container gambar */
+    .square-image-container:hover .square-image {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
     }
 </style>
