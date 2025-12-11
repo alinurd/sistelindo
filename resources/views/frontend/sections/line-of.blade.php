@@ -5,15 +5,21 @@
         <div class="row justify-content-center g-3" id="marketContainer">
             @foreach ($lineMarket->take(3) as $p)
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center">
-                        <!-- FIXED: Gunakan aspect ratio 1:1 dengan container khusus -->
-                        <div class="aspect-square-container mb-2">
-                            <div class="aspect-square-inner">
-                                <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" 
-                                     class="aspect-square-image">
+                    <!-- CARD BUJUR SANGKAR KECIL -->
+                    <div class="square-card">
+                        <div class="square-card-inner">
+                            <!-- Gambar -->
+                            <div class="square-image-container">
+                                <div class="square-image-inner">
+                                    <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" 
+                                         class="square-image">
+                                </div>
+                            </div>
+                            <!-- Deskripsi -->
+                            <div class="square-content">
+                                <p class="small text-center mt-2 mb-0" style="font-size: 0.85rem;">{!! $p->description !!}</p>
                             </div>
                         </div>
-                        <p class="small text-center mb-0 mt-2" style="font-size: 0.85rem;">{!! $p->description !!}</p>
                     </div>
                 </div>
             @endforeach
@@ -58,14 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const colDiv = document.createElement('div');
             colDiv.className = 'col-12 col-md-6 col-lg-4';
             colDiv.innerHTML = `
-                <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center">
-                    <div class="aspect-square-container mb-2">
-                        <div class="aspect-square-inner">
-                            <img src="${imageSrc}" alt="${market.title || ''}" 
-                                 class="aspect-square-image">
+                <!-- CARD BUJUR SANGKAR KECIL -->
+                <div class="square-card">
+                    <div class="square-card-inner">
+                        <!-- Gambar -->
+                        <div class="square-image-container">
+                            <div class="square-image-inner">
+                                <img src="${imageSrc}" alt="${market.title || ''}" 
+                                     class="square-image">
+                            </div>
+                        </div>
+                        <!-- Deskripsi -->
+                        <div class="square-content">
+                            <p class="small text-center mt-2 mb-0" style="font-size: 0.85rem;">${market.description || ''}</p>
                         </div>
                     </div>
-                    <p class="small text-center mb-0 mt-2" style="font-size: 0.85rem;">${market.description || ''}</p>
                 </div>
             `;
             
@@ -114,57 +127,87 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-    /* SOLUSI PASTI: Gunakan teknik aspect ratio yang benar */
-    
-    /* Container utama dengan aspect ratio 1:1 */
-    .aspect-square-container {
-        width: 120px;
+    /* CARD BUJUR SANGKAR KECIL */
+    .square-card {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* Membuat card berbentuk bujur sangkar */
+        background: white;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+        overflow: hidden;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        max-width: 240px; /* Batasi ukuran maksimum */
+        margin: 0 auto; /* Pusatkan card */
+        padding: 12px;
     }
     
-    /* Buat padding-top 100% untuk aspect ratio 1:1 */
-    .aspect-square-container::before {
-        content: "";
-        display: block;
-        padding-top: 100%; /* 1:1 Aspect Ratio */
+    /* .square-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        border-color: #007bff;
+    } */
+    
+    .square-card-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    /* Container dalam untuk gambar */
-    .aspect-square-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    /* Container gambar lebih kecil */
+    .square-image-container {
+        width: 80px; /* Diperkecil dari 120px */
+        height: 80px; /* Diperkecil dari 120px */
+        flex-shrink: 0;
+        margin-bottom: 10px;
+    }
+    
+    .square-image-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+        background-color: #f8f9fa;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: #f8f9fa;
     }
     
-    /* Gambar yang benar-benar bujur sangkar */
-    .aspect-square-image {
+    .square-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        display: block;
     }
     
-    /* Backup: gunakan aspect-ratio CSS modern */
-    @supports (aspect-ratio: 1 / 1) {
-        .aspect-square-container {
-            aspect-ratio: 1 / 1;
-        }
-        .aspect-square-container::before {
-            display: none;
-        }
+    /* Konten teks */
+    .square-content {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        text-align: center;
+        overflow: hidden;
     }
     
-    /* ALTERNATIF: Gunakan Bootstrap ratio classes */
-    .ratio-1x1 {
-        --bs-aspect-ratio: 100%;
+    .square-content p {
+        margin: 0;
+        line-height: 1.3;
+        font-size: 0.85rem;
+        max-height: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4; /* Batasi jumlah baris */
+        -webkit-box-orient: vertical;
     }
     
     /* Tombol navigasi */
@@ -175,8 +218,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     .nav-btn {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         border: 2px solid #007bff;
         background-color: white;
@@ -185,16 +228,16 @@ document.addEventListener('DOMContentLoaded', function() {
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .nav-btn:hover:not(:disabled) {
         background-color: #007bff;
         color: white;
         transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(0,123,255,0.25);
+        box-shadow: 0 4px 10px rgba(0,123,255,0.25);
     }
     
     .nav-btn:disabled, .nav-btn.disabled {
@@ -207,30 +250,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /* Responsive */
     @media (max-width: 768px) {
-        .aspect-square-container {
-            width: 100px;
+        .square-card {
+            max-width: 200px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .square-image-container {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 8px;
+        }
+        
+        .square-content p {
+            font-size: 0.8rem;
+            -webkit-line-clamp: 3;
         }
         
         .bottom-right-nav-buttons {
             margin-right: 10px;
             gap: 6px;
-        }
-        
-        .nav-btn {
-            width: 35px;
-            height: 35px;
-            font-size: 0.9rem;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .aspect-square-container {
-            width: 80px;
-        }
-        
-        .bottom-right-nav-buttons {
-            margin-right: 8px;
-            gap: 4px;
         }
         
         .nav-btn {
@@ -240,15 +279,90 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    @media (max-width: 576px) {
+        .square-card {
+            max-width: 160px;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        
+        .square-image-container {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 6px;
+        }
+        
+        .square-content p {
+            font-size: 0.75rem;
+            -webkit-line-clamp: 2;
+        }
+        
+        .bottom-right-nav-buttons {
+            margin-right: 8px;
+            gap: 4px;
+        }
+        
+        .nav-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 0.75rem;
+        }
+    }
+    
     @media (min-width: 992px) {
-        .aspect-square-container {
-            width: 140px;
+        .square-card {
+            max-width: 220px;
+        }
+        
+        .square-image-container {
+            width: 90px;
+            height: 90px;
         }
     }
     
     @media (min-width: 1200px) {
-        .aspect-square-container {
-            width: 160px;
+        .square-card {
+            max-width: 240px;
+        }
+        
+        .square-image-container {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    
+    /* Fallback untuk browser yang tidak support aspect-ratio */
+    @supports not (aspect-ratio: 1 / 1) {
+        .square-card {
+            position: relative;
+            height: 0;
+            padding-bottom: 100%; /* 1:1 Aspect Ratio */
+        }
+        
+        .square-card-inner {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .square-card-inner {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .square-card-inner {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+            }
         }
     }
 </style>
