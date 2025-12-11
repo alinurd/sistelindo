@@ -1,15 +1,15 @@
- <section class="text-center mb-24 px-4 mt-5" id="marketIndustrySection">
+<section class="text-center mb-16 px-4 mt-5" id="marketIndustrySection">
     <span class="text-title mb-3 animate-fade-in mt-5 text-center">Line of <span class="text-highlight"><strong>Market Industry</strong></span></span>
 
     <div class="container">
-        <div class="row justify-content-center g-4" id="marketContainer">
+        <div class="row justify-content-center g-3" id="marketContainer"> <!-- g-3 untuk gap lebih kecil -->
             @foreach ($lineMarket->take(3) as $p)
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                        <div class="square-image-container mb-3">
+                    <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center"> <!-- p-3 dan rounded-3 -->
+                        <div class="square-image-container mb-2"> <!-- mb-2 -->
                             <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="square-image">
                         </div>
-                        <p class="small text-center mt-2">{!! $p->description !!}</p>
+                        <p class="small text-center mb-0" style="font-size: 0.85rem;">{!! $p->description !!}</p> <!-- font-size lebih kecil -->
                     </div>
                 </div>
             @endforeach
@@ -17,7 +17,7 @@
 
         <!-- Tombol navigasi - hanya ditampilkan jika data > 3 -->
         @if ($lineMarket->count() > 3)
-            <div class="d-flex justify-content-end mt-4">
+            <div class="d-flex justify-content-end mt-3"> <!-- mt-3 -->
                 <div class="bottom-right-nav-buttons">
                     <button type="button" class="nav-btn prev-btn" id="marketPrevBtn">
                         <i class="fas fa-chevron-left"></i>
@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const colDiv = document.createElement('div');
             colDiv.className = 'col-12 col-md-6 col-lg-4';
             colDiv.innerHTML = `
-                <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                    <div class="square-image-container mb-3">
+                <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center">
+                    <div class="square-image-container mb-2">
                         <img src="${imageSrc}" alt="${market.title || ''}" class="square-image">
                     </div>
-                    <p class="small text-center mt-2">${market.description || ''}</p>
+                    <p class="small text-center mb-0" style="font-size: 0.85rem;">${market.description || ''}</p>
                 </div>
             `;
             
@@ -150,17 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-    /* Container untuk gambar bujur sangkar */
+    /* Container untuk gambar bujur sangkar - UKURAN DIKECILKAN */
     .square-image-container {
-        width: 150px;
-        height: 150px;
+        width: 100px; /* Dikurangi dari 150px */
+        height: 100px;
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px; /* Jika ingin sudut melengkung */
-        background-color: #f8f9fa; /* Background jika gambar transparan */
+        border-radius: 8px; /* Sudut lebih kecil */
+        background-color: #f8f9fa;
     }
     
     /* Gambar bujur sangkar */
@@ -180,16 +180,16 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 50%;
     }
     
-    /* Tombol navigasi */
+    /* Tombol navigasi - UKURAN DIKECILKAN */
     .bottom-right-nav-buttons {
         display: flex;
-        gap: 10px;
-        margin-right: 20px;
+        gap: 8px;
+        margin-right: 15px;
     }
     
     .nav-btn {
-        width: 50px;
-        height: 50px;
+        width: 40px; /* Dikurangi dari 50px */
+        height: 40px;
         border-radius: 50%;
         border: 2px solid #007bff;
         background-color: white;
@@ -197,17 +197,17 @@ document.addEventListener('DOMContentLoaded', function() {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         cursor: pointer;
-        font-size: 1.2rem;
+        font-size: 1rem; /* Dikurangi dari 1.2rem */
     }
     
     .nav-btn:hover:not(:disabled) {
         background-color: #007bff;
         color: white;
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,123,255,0.25);
     }
     
     .nav-btn:disabled {
@@ -221,78 +221,89 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Responsive untuk berbagai ukuran layar */
     @media (max-width: 768px) {
         .square-image-container {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
         }
         
         .bottom-right-nav-buttons {
-            margin-right: 15px;
-            gap: 8px;
+            margin-right: 10px;
+            gap: 6px;
         }
         
         .nav-btn {
-            width: 45px;
-            height: 45px;
-            font-size: 1.1rem;
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
         }
     }
     
     @media (max-width: 576px) {
         .square-image-container {
-            width: 100px;
-            height: 100px;
+            width: 70px;
+            height: 70px;
         }
         
         .bottom-right-nav-buttons {
-            margin-right: 10px;
-            gap: 5px;
+            margin-right: 8px;
+            gap: 4px;
         }
         
         .nav-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
+            width: 32px;
+            height: 32px;
+            font-size: 0.8rem;
         }
     }
     
     @media (min-width: 992px) {
         .square-image-container {
-            width: 180px;
-            height: 180px;
+            width: 120px;
+            height: 120px;
         }
     }
     
     @media (min-width: 1200px) {
         .square-image-container {
-            width: 200px;
-            height: 200px;
+            width: 140px;
+            height: 140px;
         }
     }
     
     /* Untuk zoom ekstrem */
     @media screen and (max-width: 3000px) {
         .square-image-container {
-            width: clamp(100px, 12vw, 200px);
-            height: clamp(100px, 12vw, 200px);
+            width: clamp(70px, 8vw, 140px);
+            height: clamp(70px, 8vw, 140px);
         }
         
         .nav-btn {
-            width: clamp(35px, 5vw, 50px);
-            height: clamp(35px, 5vw, 50px);
-            font-size: clamp(0.8rem, 1.2vw, 1rem);
+            width: clamp(30px, 3vw, 40px);
+            height: clamp(30px, 3vw, 40px);
+            font-size: clamp(0.7rem, 0.8vw, 1rem);
         }
     }
     
     /* Memastikan deskripsi tidak overflow */
     .small.text-center {
-        max-height: 100px;
+        max-height: 80px; /* Dikurangi dari 100px */
         overflow-y: auto;
         word-wrap: break-word;
+        line-height: 1.3;
     }
     
     /* Hover effect untuk container gambar */
     .square-image-container:hover .square-image {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
+        transform: scale(1.03);
+        transition: transform 0.2s ease;
+    }
+    
+    /* Efek untuk card keseluruhan */
+    .rounded-3 {
+        transition: all 0.2s ease;
+    }
+    
+    .rounded-3:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
     }
 </style>
