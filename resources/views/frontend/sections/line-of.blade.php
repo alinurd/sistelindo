@@ -1,129 +1,270 @@
- <section class="text-center mb-24 px-4 mt-5">
-     <span class="text-title mb-3 animate-fade-in mt-5 text-center">Line of <span class="text-highlight"><strong>Market
-                 Industry</strong></span></span>
+<section class="text-center mb-24 px-4 mt-5" id="marketIndustrySection">
+    <span class="text-title mb-3 animate-fade-in mt-5 text-center">Line of <span class="text-highlight"><strong>Market Industry</strong></span></span>
 
-     <div class="container">
-         <div class="row justify-content-center g-4">
-             @foreach ($lineMarket->take(3) as $p)
-                 <!-- Box 1 -->
-                 <div class="col-12 col-md-6 col-lg-4">
-                     <div class="p-4 bg-white shadow-sm rounded-4 border h-100">
-                         <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" widt="100" height="100"
-                             class="rounded-circle">
-                         <p class=" small">{!! $p->description !!}</p>
-                     </div>
-                 </div>
-             @endforeach
-             @if ($lineMarket->count() > 3)
-                 <script>
-                     document.addEventListener("DOMContentLoaded", () => {
-                         const productData = @json($lineMarket);
-                         const dotsWrap = document.getElementById("product-dots");
-                         let currentSlide = 0;
-                         let autoplayTimer;
-                         const interval = 4000;
-                         const itemsPerSlide = 4;
+    <div class="container">
+        <div class="row justify-content-center g-4" id="marketContainer">
+            @foreach ($lineMarket->take(3) as $p)
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
+                        <div class="square-image-container mb-3">
+                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="square-image rounded-circle">
+                        </div>
+                        <p class="small text-center">{!! $p->description !!}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
-                         function setupSlider() {
-                             const totalSlides = Math.ceil(productData.length / itemsPerSlide);
-                             buildDots(totalSlides);
-                             goToSlide(0);
-                             startAutoplay();
-                         }
+        <!-- Tombol navigasi - hanya ditampilkan jika data > 3 -->
+        @if ($lineMarket->count() > 3)
+            <div class="d-flex justify-content-end mt-4">
+                <div class="bottom-right-nav-buttons">
+                    <button type="button" class="nav-btn prev-btn" id="marketPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="nav-btn next-btn" id="marketNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        @endif
+    </div>
+</section>
 
-                         function buildDots(totalSlides) {
-                             dotsWrap.innerHTML = '';
-                             for (let i = 0; i < totalSlides; i++) {
-                                 const dot = document.createElement("span");
-                                 const bar = document.createElement("span");
-                                 bar.classList.add("progress");
-                                 dot.appendChild(bar);
-                                 dot.dataset.index = i;
-                                 dot.addEventListener("click", () => {
-                                     goToSlide(i);
-                                     restartAutoplay();
-                                 });
-                                 dotsWrap.appendChild(dot);
-                             }
-                         }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const marketData = @json($lineMarket);
+    const totalMarkets = marketData.length;
+    const visibleCount = 3;
+    let currentMarketIndex = 0;
+    
+    // Jika data <= 3, tidak perlu inisialisasi slider
+    if (totalMarkets <= 3) {
+        return;
+    }
+    
+    // Fungsi untuk update tampilan market
+    function updateMarketDisplay() {
+        const marketContainer = document.getElementById('marketContainer');
+        
+        // Kosongkan kontainer
+        marketContainer.innerHTML = '';
+        
+        // Hitung indeks akhir
+        const endIndex = Math.min(currentMarketIndex + visibleCount, totalMarkets);
+        
+        // Tambahkan market items
+        for (let i = currentMarketIndex; i < endIndex; i++) {
+            const market = marketData[i];
+            
+            // Pastikan path gambar benar
+            const imageSrc = market.image.startsWith('http') || market.image.startsWith('/') 
+                ? market.image 
+                : '/' + market.image;
+            
+            const colDiv = document.createElement('div');
+            colDiv.className = 'col-12 col-md-6 col-lg-4';
+            colDiv.innerHTML = `
+                <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
+                    <div class="square-image-container mb-3">
+                        <img src="${imageSrc}" alt="${market.title || ''}" class="square-image rounded-circle">
+                    </div>
+                    <p class="small text-center">${market.description || ''}</p>
+                </div>
+            `;
+            
+            marketContainer.appendChild(colDiv);
+        }
+        
+        // Update status tombol
+        updateMarketButtonStates();
+    }
+    
+    // Fungsi untuk update status tombol market
+    function updateMarketButtonStates() {
+        const prevBtn = document.getElementById('marketPrevBtn');
+        const nextBtn = document.getElementById('marketNextBtn');
+        
+        const hasPrev = currentMarketIndex > 0;
+        const hasNext = (currentMarketIndex + visibleCount) < totalMarkets;
+        
+        // Atur disabled state
+        if (prevBtn) {
+            prevBtn.disabled = !hasPrev;
+            prevBtn.style.opacity = hasPrev ? '1' : '0.5';
+            prevBtn.style.cursor = hasPrev ? 'pointer' : 'not-allowed';
+        }
+        
+        if (nextBtn) {
+            nextBtn.disabled = !hasNext;
+            nextBtn.style.opacity = hasNext ? '1' : '0.5';
+            nextBtn.style.cursor = hasNext ? 'pointer' : 'not-allowed';
+        }
+    }
+    
+    // Fungsi navigasi market
+    function navigateMarket(direction) {
+        if (direction === 'left' && currentMarketIndex > 0) {
+            currentMarketIndex = Math.max(0, currentMarketIndex - visibleCount);
+            updateMarketDisplay();
+        } else if (direction === 'right' && (currentMarketIndex + visibleCount) < totalMarkets) {
+            currentMarketIndex = Math.min(totalMarkets - visibleCount, currentMarketIndex + visibleCount);
+            updateMarketDisplay();
+        }
+    }
+    
+    // Event listeners untuk tombol
+    const prevBtn = document.getElementById('marketPrevBtn');
+    const nextBtn = document.getElementById('marketNextBtn');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => navigateMarket('left'));
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => navigateMarket('right'));
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        const marketSection = document.getElementById('marketIndustrySection');
+        if (marketSection) {
+            const rect = marketSection.getBoundingClientRect();
+            const isInSection = rect.top <= window.innerHeight && rect.bottom >= 0;
+            
+            if (isInSection && totalMarkets > 3) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    navigateMarket('left');
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    navigateMarket('right');
+                }
+            }
+        }
+    });
+    
+    // Initial display
+    updateMarketDisplay();
+});
+</script>
 
-                         function goToSlide(index) {
-                             currentSlide = index;
-                             updateProductDisplay();
-                             resetProgress();
-                         }
-
-                         function updateProductDisplay() {
-                             const startIndex = currentSlide * itemsPerSlide;
-                             const endIndex = startIndex + itemsPerSlide;
-                             const currentProducts = productData.slice(startIndex, endIndex);
-
-                             // Update display dengan produk yang sesuai
-                             const productContainer = document.querySelector('.row.justify-content-center');
-                             const firstRow = productContainer.closest('.row');
-
-                             // Ambil semua elemen product dan update hanya yang pertama
-                             const productElements = firstRow.querySelectorAll('.col-md-6.col-lg-3.mb-4');
-
-                             currentProducts.forEach((p, index) => {
-                                 if (productElements[index]) {
-                                     productElements[index].innerHTML = `
-                                <div class="service-card text-center p-4">
-                                    <div class="service-image mb-3">
-                                        <img src="${p.image}" alt="${p.title}" class="rounded-circle">
-                                    </div>
-                                    <h4 class="mb-3" style="font-size: 15px">${p.title}</h4>
-                                    <p class="mb-0">${p.description}</p>
-                                </div>
-                            `;
-                                 }
-                             });
-                         }
-
-                         function nextSlide() {
-                             const totalSlides = Math.ceil(productData.length / itemsPerSlide);
-                             let next = currentSlide + 1;
-                             if (next >= totalSlides) next = 0;
-                             goToSlide(next);
-                         }
-
-                         function startAutoplay() {
-                             stopAutoplay();
-                             autoplayTimer = setInterval(nextSlide, interval);
-                             resetProgress();
-                         }
-
-                         function stopAutoplay() {
-                             if (autoplayTimer) clearInterval(autoplayTimer);
-                         }
-
-                         function restartAutoplay() {
-                             stopAutoplay();
-                             startAutoplay();
-                         }
-
-                         function resetProgress() {
-                             const bars = dotsWrap?.querySelectorAll(".progress");
-                             if (!bars) return;
-
-                             bars.forEach((bar, idx) => {
-                                 bar.style.transition = "none";
-                                 bar.style.width = idx < currentSlide ? "100%" : "0";
-                             });
-
-                             setTimeout(() => {
-                                 const activeBar = dotsWrap?.querySelectorAll(".progress")[currentSlide];
-                                 if (activeBar) {
-                                     activeBar.style.transition = `width ${interval}ms linear`;
-                                     activeBar.style.width = "100%";
-                                 }
-                             }, 50);
-                         }
-
-                         setupSlider();
-                     });
-                 </script>
-             @endif
-         </div>
-     </div>
- </section>
+<style>
+    /* Container untuk gambar bujur sangkar */
+    .square-image-container {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Gambar bujur sangkar */
+    .square-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Tombol navigasi */
+    .bottom-right-nav-buttons {
+        display: flex;
+        gap: 10px;
+        margin-right: 20px;
+    }
+    
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #007bff;
+        background-color: white;
+        color: #007bff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+    
+    .nav-btn:hover:not(:disabled) {
+        background-color: #007bff;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
+    }
+    
+    .nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        border-color: #ccc;
+        color: #ccc;
+        transform: none;
+    }
+    
+    /* Responsive untuk berbagai ukuran layar */
+    @media (max-width: 768px) {
+        .square-image-container {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .bottom-right-nav-buttons {
+            margin-right: 15px;
+            gap: 8px;
+        }
+        
+        .nav-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .square-image-container {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .bottom-right-nav-buttons {
+            margin-right: 10px;
+            gap: 5px;
+        }
+        
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .square-image-container {
+            width: 180px;
+            height: 180px;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .square-image-container {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    
+    /* Untuk zoom ekstrem */
+    @media screen and (max-width: 3000px) {
+        .square-image-container {
+            width: clamp(100px, 12vw, 200px);
+            height: clamp(100px, 12vw, 200px);
+        }
+        
+        .nav-btn {
+            width: clamp(35px, 5vw, 50px);
+            height: clamp(35px, 5vw, 50px);
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
+        }
+    }
+</style>
