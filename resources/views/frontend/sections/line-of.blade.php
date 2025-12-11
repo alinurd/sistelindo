@@ -8,7 +8,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
                         <div class="square-image-container">
-                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" >
+                            <img src="{{ asset('storage/photos/1/line/sistelindo-line-of-market-01.png') }}" alt="{{ $p->title }}" >
                                                      <p class="small text-center mt-4">{!! $p->description !!}</p>
 
                         </div>
@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
             colDiv.className = 'col-12 col-md-6 col-lg-4';
             colDiv.innerHTML = `
                 <div class="p-4 bg-white shadow-sm rounded-4 border h-100 d-flex flex-column align-items-center">
-                    <div class="square-image-container mb-3">
-                        <img src="${imageSrc}" alt="${market.title || ''}" class="square-image rounded-circle">
+                    <div class="square-image-container">
+                        <img src="${imageSrc}" alt="${market.title || ''}" >
+                        <p class="small text-center mt-4">${market.description || ''}</p>
                     </div>
-                    <p class="small text-center">${market.description || ''}</p>
                 </div>
             `;
             
