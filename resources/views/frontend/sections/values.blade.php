@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-lg-3 p-3">
                     <div class="text-center ">
                         <div class="service-image mb-3">
-                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="rounded-circle" width="90">
+                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="rounded-circle" width="130">
                         </div>
                         <p class="fw-semibold small">{{ $p->title }}</p>
                     </div>
@@ -144,7 +144,7 @@
                 @for ($i = 0; $i < min($visibleCount, $totalFacilities); $i++)
                     @php $p=$facility[$i]; @endphp
                     <div class="col-lg-8 mx-auto d-flex mb-4 facility-item">
-                    <img src="{{ asset($p->image) }}" width="150" height="100" class="shadow-sm rounded me-3" />
+                    <img src="{{ asset($p->image) }}" width="180" height="100" class="shadow-sm rounded me-3" />
                     <div class="flex-grow-1">
                         <h6 class="fw-bold mb-1" style="font-size: 15px">{{ $p->title }}</h6>
                         <p class="text-muted small mb-2">
