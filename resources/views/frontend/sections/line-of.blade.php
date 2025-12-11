@@ -6,8 +6,12 @@
             @foreach ($lineMarket->take(3) as $p)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center">
-                        <div class="square-image-container mb-2 d-flex align-items-center justify-content-center">
-                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="square-image w-100 h-100">
+                        <!-- FIXED: Gunakan aspect ratio 1:1 dengan container khusus -->
+                        <div class="aspect-square-container mb-2">
+                            <div class="aspect-square-inner">
+                                <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" 
+                                     class="aspect-square-image">
+                            </div>
                         </div>
                         <p class="small text-center mb-0 mt-2" style="font-size: 0.85rem;">{!! $p->description !!}</p>
                     </div>
@@ -55,8 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
             colDiv.className = 'col-12 col-md-6 col-lg-4';
             colDiv.innerHTML = `
                 <div class="p-3 bg-white shadow-sm rounded-3 border h-100 d-flex flex-column align-items-center">
-                    <div class="square-image-container mb-2 d-flex align-items-center justify-content-center">
-                        <img src="${imageSrc}" alt="${market.title || ''}" class="square-image w-100 h-100">
+                    <div class="aspect-square-container mb-2">
+                        <div class="aspect-square-inner">
+                            <img src="${imageSrc}" alt="${market.title || ''}" 
+                                 class="aspect-square-image">
+                        </div>
                     </div>
                     <p class="small text-center mb-0 mt-2" style="font-size: 0.85rem;">${market.description || ''}</p>
                 </div>
@@ -107,45 +114,57 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-    /* PERBAIKAN UTAMA: Pastikan container dan gambar benar-benar bujur sangkar */
-    .square-image-container {
+    /* SOLUSI PASTI: Gunakan teknik aspect ratio yang benar */
+    
+    /* Container utama dengan aspect ratio 1:1 */
+    .aspect-square-container {
         width: 120px;
-        height: 120px;
-        min-width: 120px;
-        min-height: 120px;
         position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        background-color: #f8f9fa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     
-    /* FORCE gambar menjadi bujur sangkar */
-    .square-image {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
+    /* Buat padding-top 100% untuk aspect ratio 1:1 */
+    .aspect-square-container::before {
+        content: "";
         display: block;
+        padding-top: 100%; /* 1:1 Aspect Ratio */
+    }
+    
+    /* Container dalam untuk gambar */
+    .aspect-square-inner {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #f8f9fa;
     }
     
-    /* Pastikan img tag menggunakan object-fit */
-    img.square-image {
-        object-fit: cover;
-    }
-    
-    /* Backup styling untuk gambar */
-    .square-image-container img {
+    /* Gambar yang benar-benar bujur sangkar */
+    .aspect-square-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
+    }
+    
+    /* Backup: gunakan aspect-ratio CSS modern */
+    @supports (aspect-ratio: 1 / 1) {
+        .aspect-square-container {
+            aspect-ratio: 1 / 1;
+        }
+        .aspect-square-container::before {
+            display: none;
+        }
+    }
+    
+    /* ALTERNATIF: Gunakan Bootstrap ratio classes */
+    .ratio-1x1 {
+        --bs-aspect-ratio: 100%;
     }
     
     /* Tombol navigasi */
@@ -188,11 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /* Responsive */
     @media (max-width: 768px) {
-        .square-image-container {
+        .aspect-square-container {
             width: 100px;
-            height: 100px;
-            min-width: 100px;
-            min-height: 100px;
         }
         
         .bottom-right-nav-buttons {
@@ -208,11 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     @media (max-width: 576px) {
-        .square-image-container {
+        .aspect-square-container {
             width: 80px;
-            height: 80px;
-            min-width: 80px;
-            min-height: 80px;
         }
         
         .bottom-right-nav-buttons {
@@ -228,36 +241,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     @media (min-width: 992px) {
-        .square-image-container {
+        .aspect-square-container {
             width: 140px;
-            height: 140px;
-            min-width: 140px;
-            min-height: 140px;
         }
     }
     
     @media (min-width: 1200px) {
-        .square-image-container {
+        .aspect-square-container {
             width: 160px;
-            height: 160px;
-            min-width: 160px;
-            min-height: 160px;
-        }
-    }
-    
-    /* Paksa aspect ratio 1:1 */
-    .square-image-container::before {
-        content: '';
-        display: block;
-        padding-top: 100%; /* Ini memastikan tinggi sama dengan lebar */
-    }
-    
-    /* Atau gunakan aspect-ratio modern */
-    @supports (aspect-ratio: 1 / 1) {
-        .square-image-container {
-            aspect-ratio: 1 / 1;
-            min-width: auto;
-            min-height: auto;
         }
     }
 </style>
