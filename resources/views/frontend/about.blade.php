@@ -333,10 +333,13 @@
 
 
     <section class="text-center mb-24 px-4 mt-5 position-relative" id="coreServicesSection">
-        <h2 class="text-3xl font-bold text-[#003366] mb-12 animate-fade-in">
-            Core Services: Internet Service Provider <br>
-            and System Integrator
-        </h2> 
+        
+        <br>
+        <span class="text-title mb-3 d-block">
+                        Core Services: <span class="text-highlight"><strong>Internet Service Provider <br>
+            and System Integrator</strong></span>
+                    </span>
+
         <div class="container mt-5">
             <div class="row justify-content-center g-4" id="productContainer">
                 @php
