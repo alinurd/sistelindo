@@ -24,7 +24,7 @@
         <span class="text-title mb-3 animate-fade-in">Empowering <span
                 class="text-highlight"><strong>Business</strong></span></span>
         <div class="animate-fade-in stagger-delay-1">
-            <p class="text-gray-600 mx-auto mb-10" style="max-width: 700px;">
+            <p class="text-muted mx-auto mb-10" style="max-width: 700px;">
                 To become a trusted company in the field of internet, data communication
                 services and ICT solutions in IndonesiaTo become a trusted company in the field of internet, data
                 communication
