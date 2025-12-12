@@ -1,4 +1,4 @@
-<section class="services-wrapper py-5 animate-fade-in">
+<section class="services-wrapper py-2 animate-fade-in">
     <div class="container">
         <div class="row g-5 justify-content-center" id="facilityContainer">
             @php
@@ -20,6 +20,7 @@
                 @endphp
                 <div class="col-lg-6 text-center">
                     <img src="{{ asset($p->image) }}" width="500" height="260" class="shadow-sm rounded mb-3" />
+                    <br><br>
                     <div class="services-card">
                         <h5>{{ $p->title }}</h5>
                         <p class="text-muted small px-3">
@@ -102,6 +103,7 @@ function updateDisplay() {
         
         colDiv.innerHTML = `
             <img src="${imageSrc}" width="500" height="260" class="shadow-sm rounded mb-3" />
+             <br><br>   
             <div class="services-card">
                 <h5>${facility.title || ''}</h5>
                 <p class="text-muted small px-3">
