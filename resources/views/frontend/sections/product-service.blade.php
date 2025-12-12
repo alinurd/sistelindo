@@ -99,7 +99,7 @@
                         <h6 class="fw-bold mb-2" style="font-size: 18px">${facility.title || ''}</h6>
                         <p class="text-muted mb-2" style="font-size: 14px; line-height: 1.6">
                             ${shortDescription}
-                            ${(facility.description || '').replace(/<[^>]*>/g, '').length > 200 ? '<span class="text-primary">...</span>' : ''}
+                            ${(facility.description || '')}
                         </p>
                     </div>
                 `;
