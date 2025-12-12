@@ -5,11 +5,15 @@
         <div class="row justify-content-center text-center mb-5 g-3 bg-light">
             @foreach ($advantage->take(3) as $p)
                 <div class="col-md-6 col-lg-3 p-3">
-                    <div class="text-center ">
+                    <div class="text-center d-flex flex-column align-items-center justify-content-center h-100">
                         <div class="service-image mb-3">
                             <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="rounded-circle" width="180">
                         </div>
-                        <p class="fw-semibold small">{{ $p->title }}</p>
+                        <p class="fw-semibold small mb-0">{{ $p->title }}</p>
+                        <!-- Jika ada deskripsi tambahkan di sini -->
+                        @if(!empty($p->description))
+                            <p class="text-muted small mt-2">{{ $p->description }}</p>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -75,12 +79,12 @@
                         currentProducts.forEach((p, index) => {
                             if (productElements[index]) {
                                 productElements[index].innerHTML = `
-                                <div class="service-card text-center p-4">
+                                <div class="service-card text-center p-4 d-flex flex-column align-items-center justify-content-center h-100">
                                     <div class="service-image mb-3">
                                         <img src="${p.image}" alt="${p.title}" class="rounded-circle">
                                     </div>
-                                    <h4 class="mb-3" style="font-size: 15px">${p.title}</h4>
-                                    <p class="mb-0">${p.description}</p>
+                                    <h4 class="mb-2" style="font-size: 15px">${p.title}</h4>
+                                    <p class="mb-0 text-muted small">${p.description}</p>
                                 </div>
                             `;
                             }
@@ -144,11 +148,11 @@
 
                 @for ($i = 0; $i < min($visibleCount, $totalFacilities); $i++)
                     @php $p=$facility[$i]; @endphp
-                    <div class="col-lg-8 mx-auto d-flex mb-4 facility-item">
+                    <div class="col-lg-8 mx-auto d-flex mb-4 facility-item align-items-center">
                     <img src="{{ asset($p->image) }}" width="180" height="100" class="shadow-sm rounded me-3" />
-                    <div class="flex-grow-1">
-                        <h6 class="fw-bold mb-1" style="font-size: 15px">{{ $p->title }}</h6>
-                        <p class="text-muted small mb-2">
+                    <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                        <h6 class="fw-bold mb-2" style="font-size: 15px">{{ $p->title }}</h6>
+                        <p class="text-muted small mb-0">
                             {{ $p->description }}
                         </p>
                     </div>
@@ -172,7 +176,6 @@
 
 <style>
     /* Floating Navigation Buttons Styling */
-   
     .bottom-right-nav-buttons {
         position: absolute;
         bottom: 20px;
@@ -181,12 +184,11 @@
         gap: 10px;
         z-index: 100;
     }
-    
-   
-
+  
     /* Animasi untuk konten */
     .facility-item {
         animation: fadeIn 0.5s ease-in-out;
+        min-height: 150px; /* Memberikan tinggi minimum untuk konsistensi */
     }
 
     @keyframes fadeIn {
@@ -194,16 +196,24 @@
             opacity: 0;
             transform: translateY(10px);
         }
-
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
 
+    /* Styling untuk memastikan konten vertikal terpusat */
+    .service-card {
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
-        .floating-nav-buttons {
+        .bottom-right-nav-buttons {
             bottom: 20px;
             right: 20px;
         }
@@ -212,6 +222,31 @@
             width: 45px;
             height: 45px;
             font-size: 1rem;
+        }
+
+        .facility-item {
+            min-height: 120px;
+        }
+
+        .service-card {
+            min-height: 200px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .facility-item {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .facility-item img {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+        .flex-grow-1 {
+            width: 100%;
         }
     }
 </style>
@@ -244,16 +279,16 @@
 
                 // Buat elemen item
                 const facilityElement = document.createElement('div');
-                facilityElement.className = 'col-lg-8 mx-auto d-flex mb-4 facility-item';
+                facilityElement.className = 'col-lg-8 mx-auto d-flex mb-4 facility-item align-items-center';
 
                 facilityElement.innerHTML = `
                 <img src="${facility.image.startsWith('http') ? facility.image : 
                           facility.image.startsWith('/') ? facility.image : 
                           '/' + facility.image}" 
                      width="150" height="100" class="shadow-sm rounded me-3" />
-                <div class="flex-grow-1">
-                    <h6 class="fw-bold mb-1" style="font-size: 15px">${facility.title}</h6>
-                    <p class="text-muted small mb-2">
+                <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                    <h6 class="fw-bold mb-2" style="font-size: 15px">${facility.title}</h6>
+                    <p class="text-muted small mb-0">
                         ${facility.description}
                     </p>
                 </div>
