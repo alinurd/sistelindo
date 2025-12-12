@@ -426,7 +426,7 @@
                      <span class="text-primary">${product.title || ''} </span>
                 </h4>
                 
-                <p class="text-gray-700 fs-5">
+                <p class="text-gray-700 fs-6">
                     ${description}
                 </p>
             </div>
