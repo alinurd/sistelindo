@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="position-relative d-inline-block">
                 <img src="${imageSrc}" 
                      class="rounded w-100 h-auto iso-image"
-                     style="max-width: 350px; height: 220px; object-fit: cover;"
+                     style="max-width: 400px; height: 220px; object-fit: cover;"
                      alt="${currentIso.title}"
                      onerror="this.src='https://placehold.co/350x220?text=ISO+Image'">
             </div>
