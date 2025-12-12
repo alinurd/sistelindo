@@ -181,7 +181,7 @@
     <section class="container mx-auto px-4">
         <span class="text-title mb-3 animate-fade-in mt-5 text-center">License <span
                 class="text-highlight"><strong>Holder</strong></span></span>
-
+<br>
         <div class="row align-items-center">
             <div class="col-lg-12 mb-5 animate-fade-in stagger-delay-1">
                 <div class="text-center">
