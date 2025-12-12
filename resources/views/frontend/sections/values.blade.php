@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-lg-3 p-3">
                     <div class="text-center ">
                         <div class="service-image mb-3">
-                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="rounded-circle" width="130">
+                            <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" class="rounded-circle" width="180">
                         </div>
                         <p class="fw-semibold small">{{ $p->title }}</p>
                     </div>
@@ -18,6 +18,7 @@
                 {{-- <div class="advantage-dots" id="advantage-dots"></div> --}}
             @endif
         </div>
+        <br><br>
 
         <!-- JavaScript untuk slider advantage -->
         @if ($advantage->count() > 3)
