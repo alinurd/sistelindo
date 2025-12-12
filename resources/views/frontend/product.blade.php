@@ -8,7 +8,7 @@
                     class="text-highlight"><strong>Service</strong></span></span>
         </h2>
     </section>
-    <section class="container mx-auto px-4">
+    <section class="container mx-auto px-2">
         <div class="row align-items-center mt-5">
             <div class="col-lg-12 mb-5 animate-fade-in stagger-delay-1">
                 <div class="text-center">
@@ -20,7 +20,7 @@
     </section>
 
 
-    <section class="text-center mt-5 px-4">
+    <section class="text-center mt-1 px-4">
         <span class="text-title mb-3 animate-fade-in">Empowering <span
                 class="text-highlight"><strong>Business</strong></span></span>
         <div class="animate-fade-in stagger-delay-1">

@@ -1,6 +1,6 @@
 <section class="text-center  px-2 mt-3">
     <h2 class="text-title mb-3 animate-fade-in">Line of <span class="text-highlight">Market Industry</span></h2>
-
+<br>
     <div class="container">
         <div class="row justify-content-center g-1 g-md-2">
             @foreach ($lineMarket as $p)
