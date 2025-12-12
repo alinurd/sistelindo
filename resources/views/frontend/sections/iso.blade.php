@@ -20,7 +20,7 @@
                 <div class="position-relative">
                     <img src="{{ asset('assets/img/material/4.jpg')}}" 
                          class="rounded shadow w-100 h-auto "
-                         style="max-width: 400px; height: 220px;">
+                         style="max-width: 600px; height: 220px;">
                 </div>
             @endif
         </div>
