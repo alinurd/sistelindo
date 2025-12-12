@@ -45,7 +45,7 @@
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <img src="{{ asset('assets/img/material/sistelindo-internet-solution-01.png') }}"
                             class="rounded-lg hover-grow" alt=""
-                            style="width: 250px; height: 300px; object-fit: cover;">
+                            style="width: 200px; height: 280px; object-fit: cover;">
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@
                             <!-- Gambar - DIPERBESAR -->
                             <div class="icon-wrapper mb-1">
                                 <img src="{{ asset($p->image) }}" alt="{{ $p->title }}"
-                                   width="90" class="industry-icon">
+                                   width="40" class="industry-icon">
                                     
                             </div>
                             
