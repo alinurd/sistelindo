@@ -422,9 +422,9 @@
                          alt="${product.title || ''}"
                          style="max-width: 350px; height: 220px; object-fit: cover;">
                 </div>
-                       <h3 class="text-3xl font-bold text-[#003366] mb-3">
+                       <h4 class="text- font-bold text-[#003366] mb-3">
                      <span class="text-primary">${product.title || ''} </span>
-                </h3>
+                </h4>
                 
                 <p class="text-gray-700 fs-5">
                     ${description}
