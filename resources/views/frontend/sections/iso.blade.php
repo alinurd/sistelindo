@@ -59,7 +59,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
     transition: all 0.3s ease;
     cursor: pointer;
 }
