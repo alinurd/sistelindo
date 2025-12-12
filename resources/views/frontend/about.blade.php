@@ -7,48 +7,50 @@
             <span class="text-primary">Why Sistelindo?</span>
         </h2>
     </section>
-    <section class="mt-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Gambar di kiri -->
-                <div class="col-lg-6 col-md-6 animate-slide-left stagger-delay-1">
-                    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
-                        @php
-                            $banner = [
-                                [
-                                    'image' => 'assets/img/material/1.png',
-                                ],
-                                [
-                                    'image' => 'assets/img/material/2.png',
-                                ],
-                            ];
-                        @endphp
+   <section class="mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Gambar di kiri -->
+            <div class="col-lg-6 col-md-6 animate-slide-left stagger-delay-1">
+                <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+                    @php
+                        $banner = [
+                            [
+                                'image' => 'assets/img/material/1.png',
+                            ],
+                            [
+                                'image' => 'assets/img/material/2.png',
+                            ],
+                        ];
+                    @endphp
 
-                        <!-- Indicators -->
-                        <div class="carousel-indicators">
-                            @foreach ($banner as $i => $p)
-                                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="{{ $i }}"
-                                    class="{{ $i === 0 ? 'active' : '' }}" aria-current="{{ $i === 0 ? 'true' : 'false' }}"
-                                    data-index="{{ $i }}">
-                                </button>
-                            @endforeach
-                        </div>
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        @foreach ($banner as $i => $p)
+                            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="{{ $i }}"
+                                class="{{ $i === 0 ? 'active' : '' }}" 
+                                aria-current="{{ $i === 0 ? 'true' : 'false' }}"
+                                data-index="{{ $i }}">
+                            </button>
+                        @endforeach
+                    </div>
 
-                        <!-- Slides -->
-                        <div class="carousel-inner">
-                            @foreach ($banner as $i => $p)
-                                <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset($p['image']) }}"
-                                        class="d-block w-100 hero-slider-img rounded shadow-sm"
-                                        alt="Slide {{ $i + 1 }}">
-                                </div>
-                            @endforeach
-                        </div>
+                    <!-- Slides -->
+                    <div class="carousel-inner">
+                        @foreach ($banner as $i => $p)
+                            <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
+                                <img src="{{ asset($p['image']) }}"
+                                    class="d-block w-100 hero-slider-img rounded shadow-sm"
+                                    alt="Slide {{ $i + 1 }}">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+            </div>
 
-                <!-- Keterangan review di kanan -->
-                <div class="col-lg-6 col-md-6 animate-slide-right stagger-delay-2 ps-lg-4 ps-md-3">
+            <!-- Keterangan review di kanan - DI MODIFIKASI -->
+            <div class="col-lg-6 col-md-6 animate-slide-right stagger-delay-2 ps-lg-4 ps-md-3 d-flex flex-column justify-content-center mt-5">
+                <div class="review-content">
                     <span class="text-title mb-3 d-block">
                         Company <span class="text-highlight"><strong>Review</strong></span>
                     </span>
@@ -58,68 +60,91 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <style>
-        /* Atur ukuran gambar */
+    /* Tambahkan styling untuk review section */
+    .review-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 300px; /* Tinggi minimum agar konten tidak terlalu pendek */
+    }
 
+  
 
-        /* Atur carousel agar tidak terlalu lebar */
-        #heroSlider {
-            max-width: 100%;
-            margin: 0 auto;
+    /* Pastikan gambar slider memiliki tinggi yang konsisten */
+    .hero-slider-img {
+        height: 400px;
+        object-fit: cover;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .review-content {
+            min-height: auto;
+            padding-top: 30px; /* Tambah jarak atas saat di mobile */
         }
 
-        /* Kurangi padding/margin pada layout */
+        .text-title {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .text-muted {
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* Di mobile, gambar di atas, review di bawah */
         .row.align-items-center {
-            align-items: flex-start !important;
+            flex-direction: column;
         }
 
-        /* Atur jarak antara kolom */
-        .col-lg-6:first-child {
-            padding-right: 15px;
+        .col-lg-6.col-md-6 {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
         }
 
-        .col-lg-6:last-child {
-            padding-left: 15px;
+        .ps-lg-4.ps-md-3 {
+            padding-left: 0 !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-slider-img {
+            height: 300px;
         }
 
-        /* Responsive untuk mobile */
-        @media (max-width: 768px) {
-            .hero-slider-img {
-                max-height: 280px;
-            }
-
-            .col-lg-6:first-child,
-            .col-lg-6:last-child {
-                padding-right: 0;
-                padding-left: 0;
-                margin-bottom: 20px;
-            }
-
-            .ps-lg-4.ps-md-3 {
-                padding-left: 0 !important;
-            }
+        .review-content {
+            min-height: auto;
+            padding: 20px 0;
         }
 
-        /* Atur carousel indicators */
-        .carousel-indicators {
-            margin-bottom: 10px;
+        .text-title {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-slider-img {
+            height: 250px;
         }
 
-        .carousel-indicators button {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin: 0 4px;
+        .review-content {
+            padding: 15px 0;
         }
-    </style>
 
+        .text-title {
+            font-size: 1.2rem;
+        }
 
-
-
-
-
+        .text-muted {
+            font-size: 0.9rem;
+        }
+    }
+</style>
     <section class="text-center mt-5 px-4">
         <span class="text-title mb-1 animate-fade-in">Company <span
                 class="text-highlight"><strong>Vision</strong></span></span>
