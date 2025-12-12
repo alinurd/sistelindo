@@ -180,36 +180,7 @@
         z-index: 100;
     }
     
-    .nav-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #007bff;
-        background-color: white;
-        color: #007bff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-    
-    .nav-btn:hover:not(:disabled) {
-        background-color: #007bff;
-        color: white;
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0,123,255,0.3);
-    }
-    
-    .nav-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        border-color: #ccc;
-        color: #ccc;
-        transform: none;
-    }
+   
 
     /* Animasi untuk konten */
     .facility-item {

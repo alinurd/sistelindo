@@ -31,6 +31,8 @@
             @endfor
         </div>
         
+        <br>
+        <br>
         <!-- Tombol navigasi di dalam container -->
         <div class="d-flex justify-content-end mt-4">
             <div class="bottom-right-nav-buttons">
