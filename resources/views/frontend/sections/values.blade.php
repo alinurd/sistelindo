@@ -279,7 +279,7 @@
 
                 // Buat elemen item
                 const facilityElement = document.createElement('div');
-                facilityElement.className = 'col-lg-8 mx-auto d-flex mb-4 facility-item align-items-center';
+                facilityElement.className = 'col-lg-8 mx-auto d-flex mb-2 facility-item align-items-center';
 
                 facilityElement.innerHTML = `
                 <img src="${facility.image.startsWith('http') ? facility.image : 
@@ -287,7 +287,7 @@
                           '/' + facility.image}" 
                      width="150" height="100" class="shadow-sm rounded me-3" />
                 <div class="flex-grow-1 d-flex flex-column justify-content-center">
-                    <h6 class="fw-bold mb-2" style="font-size: 15px">${facility.title}</h6>
+                    <h6 class="fw-bold " style="font-size: 15px">${facility.title}</h6>
                     <p class="text-muted small mb-0">
                         ${facility.description}
                     </p>
@@ -299,7 +299,7 @@
                 // Tambahkan garis pemisah jika bukan item terakhir
                 if (i < endIndex - 1) {
                     const hrElement = document.createElement('hr');
-                    hrElement.className = 'mt-0 mb-4';
+                    hrElement.className = 'mt-0 mb-0';
                     hrElement.style.marginLeft = '220px';
                     hrElement.style.maxWidth = 'calc(100% - 400px)';
                     facilityContainerF.appendChild(hrElement);
