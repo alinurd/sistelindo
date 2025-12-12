@@ -152,11 +152,12 @@
                         </p>
                     </div>
             </div>
-            <hr class="mt-0 mb-4" style="margin-left: 166px; max-width: calc(100% - 166px);">
+            {{-- <hr class="mt-0 mb-4" style="margin-left: 166px; max-width: calc(100% - 166px);"> --}}
             @endfor
         </div>
     </div>
 
+    <br><br>
     <!-- Floating Navigation Buttons (Pojok Kanan Bawah) -->
     <div class="bottom-right-nav-buttons">
         <button type="button" class="nav-btn prev-btn" id="prevBtnF">
@@ -263,8 +264,8 @@
                 if (i < endIndex - 1) {
                     const hrElement = document.createElement('hr');
                     hrElement.className = 'mt-0 mb-4';
-                    hrElement.style.marginLeft = '166px';
-                    hrElement.style.maxWidth = 'calc(100% - 166px)';
+                    hrElement.style.marginLeft = '220px';
+                    hrElement.style.maxWidth = 'calc(100% - 400px)';
                     facilityContainerF.appendChild(hrElement);
                 }
             }
