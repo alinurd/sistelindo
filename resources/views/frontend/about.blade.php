@@ -355,9 +355,11 @@
                                 <img src="{{ asset($p->image) }}" class="rounded shadow w-100 h-auto mb-4 hover-grow"
                                     alt="{{ $p->title }}" style="max-width: 350px; height: 220px; object-fit: cover;">
                             </div>
-                            <h4 class="font-semibold text-xl text-highlight mb-4">
-                                {{ $p->title }}
-                            </h4>
+                             <h3 class="text-3xl font-bold text-[#003366] mb-3">
+                     <span class="text-primary">{{$p->title}} </span>
+                </h3>
+
+                            
                             <p class="text-gray-700 fs-5">
                                 {!! $p->description !!}
                             </p>
@@ -420,9 +422,10 @@
                          alt="${product.title || ''}"
                          style="max-width: 350px; height: 220px; object-fit: cover;">
                 </div>
-                <h4 class="font-semibold text-xl text-highlight mb-4">
-                    ${product.title || ''}
-                </h4> 
+                       <h3 class="text-3xl font-bold text-[#003366] mb-3">
+                     <span class="text-primary">${product.title || ''} </span>
+                </h3>
+                
                 <p class="text-gray-700 fs-5">
                     ${description}
                 </p>
