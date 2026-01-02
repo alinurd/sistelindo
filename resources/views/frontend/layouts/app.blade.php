@@ -11,7 +11,7 @@
     <title>{{ $title ?? 'Sistelindo' }}</title>
         <link rel="icon" type="image/x-icon" href="{{ $setting?->favicon ? asset($setting->favicon) : asset('/storage/photos/1/sistelindo-favicon.png') }}" />
 
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
             <meta name="description" content="{{ $description ?? $setting?->meta_description ?? 'Sistelindo ' }}">
 
@@ -58,7 +58,7 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    <script>
+      <script>
         $(document).ready(function() {
             $('#submit').on('click', function(e) {
                 e.preventDefault();
@@ -106,7 +106,7 @@
         //         `Pesan Anda mengandung terlalu banyak kata mencurigakan (${foundSpamWords.length}). Harap ubah isi pesan agar tidak dianggap spam.`
         //     );
         // } else if (foundSpamWords.length > 0) { 
-        //     console.warn(`⚠️ Ditemukan kata mencurigakan: ${foundSpamWords.join(', ')}`);
+        //     console.warn(`âš ï¸ Ditemukan kata mencurigakan: ${foundSpamWords.join(', ')}`);
         // }
 
             const formData = $('#formData').serialize();
@@ -169,6 +169,7 @@
             });
         }
     </script>
+
 
 
 <script>
