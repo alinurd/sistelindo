@@ -296,32 +296,3 @@
         }
     }
 </style>
-
-<script>
-    // Jika membutuhkan script untuk form submission
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('formData');
-        const submitBtn = document.getElementById('submit');
-        const simpanSpan = document.getElementById('simpan');
-        const loadingSpan = document.getElementById('loading');
-        
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function() {
-                // Validasi form
-                if (!form.checkValidity()) {
-                    form.classList.add('was-validated');
-                    return;
-                }
-                
-                // Tampilkan loading
-                simpanSpan.classList.add('d-none');
-                loadingSpan.classList.remove('d-none');
-                
-                // Kirim form (contoh dengan AJAX)
-                const formData = new FormData(form);
-                
-             
-            });
-        }
-    });
-</script>

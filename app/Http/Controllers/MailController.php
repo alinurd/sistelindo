@@ -18,7 +18,7 @@ class MailController extends Controller
       'email' => $request->email,
       'name' => $request->name,
       'subject' => $request->subject,
-      'title' => 'Info The Gallery Villa',
+      'title' => 'Info Sistelindo',
       'body' => $request->message,
 
     ];

@@ -53,6 +53,124 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#submit').on('click', function(e) {
+                e.preventDefault();
+                saveData();
+            });
+
+        });
+
+        function saveData() {
+             let hasEmptyRequiredForm = false;
+
+            $('#formData input[required]:visible, #formData textarea[required]:visible').each(function() {
+                if (!$(this).val()) hasEmptyRequiredForm = true;
+            });
+
+            if (hasEmptyRequiredForm) {
+                return swAlertDialog('error', 'Silakan isi semua formulir');
+            }
+
+            const email = $('#formData input[name="email"]').val();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                return swAlertDialog('error', 'Format email tidak valid. Silakan periksa kembali.');
+            }
+
+             const message = $('#formData textarea[name="message"]').val().trim();
+        if (message.length < 10) {
+            return swAlertDialog('error', 'Pesan minimal harus 10 karakter.');
+        }
+
+      // const spamWords = [
+      //       'gratis', 'hadiah', 'uang', 'promo', 'diskon', 'transfer',
+      //       'klik di sini', 'link ini', 'daftar sekarang', 'belanja',
+      //       'pinjaman', 'kredit', 'menang', 'lotre', 'bitcoin', 'crypto'
+      //   ];
+
+        // const lowerMsg = message.toLowerCase();
+        // const foundSpamWords = spamWords.filter(word => lowerMsg.includes(word));
+
+        // const spamThreshold = 4;
+
+        // if (foundSpamWords.length >= spamThreshold) {
+        //     return swAlertDialog(
+        //         'error',
+        //         `Pesan Anda mengandung terlalu banyak kata mencurigakan (${foundSpamWords.length}). Harap ubah isi pesan agar tidak dianggap spam.`
+        //     );
+        // } else if (foundSpamWords.length > 0) { 
+        //     console.warn(`⚠️ Ditemukan kata mencurigakan: ${foundSpamWords.join(', ')}`);
+        // }
+
+            const formData = $('#formData').serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('sendMail') }}",
+                data: formData,
+                dataType: 'json',
+                beforeSend: function() {
+                    $('#submit').prop('disabled', true);
+                    $('#loading').removeClass('d-none');
+                    $('#simpan').addClass('d-none');
+                },
+                success: function(res) {
+                    if (res.status === 'success' || res === 'OK') {
+                        swAlertDialog('success',
+                            'Terima kasih sudah menghubungi kami, tim kami akan segera merespon pesan Anda.'
+                            );
+                        $('#formData')[0].reset();
+                    } else {
+                        swAlertDialog('error', res.message ?? 'Terjadi kesalahan saat mengirim email.');
+                    }
+                },
+                error: function(err) {
+                    console.error(err);
+                    swAlertDialog('error', 'Gagal mengirim email. Silakan coba lagi.');
+                },
+                complete: function() {
+                    $('#submit').prop('disabled', false);
+                    $('#loading').addClass('d-none');
+                    $('#simpan').removeClass('d-none');
+                }
+            });
+        }
+
+
+        // === SweetAlert Helpers ===
+        function sweetAlert(type, message) {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: type,
+                title: message,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        function swAlertDialog(type, message) {
+            Swal.fire({
+                title: type === 'error' ? 'Gagal!' : 'Berhasil!',
+                text: message,
+                icon: type === 'error' ? 'error' : 'success',
+                confirmButtonText: 'Oke',
+                customClass: {
+                    confirmButton: 'btn btn-primary waves-effect waves-light'
+                },
+                buttonsStyling: false
+            });
+        }
+    </script>
+
+
 <script>
     // Simple intersection observer for animations
     document.addEventListener('DOMContentLoaded', function() {
