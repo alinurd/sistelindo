@@ -39,7 +39,12 @@
   
  
   <div class="mb-3">
-    <label for="description" id="label-description" class="form-label"></label>
+    <label for="shortdescription" id="label-shortdescription" class="form-label">Short Description</label>
+    <textarea name="shortdescription" id="shortdescription" class="form-control"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" id="label" class="form-label">Description Detail</label>
     <textarea name="description" id="description" class="form-control"></textarea>
   </div>
  
@@ -60,6 +65,30 @@
                 <i class="menu-icon tf-icons ti ti-photo"></i> <span id="btn-choose"></span>
               </a>
               <input id="thumbnail" class="form-control bg-secondary-subtle" type="text" name="image" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+  <!-- Banner Image -->
+  <div class="row">
+    <div class="col mb-3">
+      <div class="border rounded p-2">
+        <label id="label" class="form-label mb-1">Banner Image</label>
+        <div class="d-flex flex-column flex-md-row justify-content-evenly align-items-center">
+          <div id="holder1" class="mb-1 mb-md-0">
+            <img src="{{ asset('assets/img/noimage.jpg') }}" style="height: 110px;" alt="Featured Image">
+        </div>
+          <div>
+            <small id="featured-note" class="text-muted"></small>
+            <div class="input-group">
+              <a id="lfm1" data-input="thumbnail1" data-preview="holder1" class="btn btn-primary text-white">
+                <i class="menu-icon tf-icons ti ti-photo"></i> <span id="btn-choose"></span>
+              </a>
+              <input id="thumbnail1" class="form-control bg-secondary-subtle" type="text" name="imagebanner" readonly>
             </div>
           </div>
         </div>

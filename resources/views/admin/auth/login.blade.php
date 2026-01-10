@@ -1,8 +1,9 @@
 @extends('admin/auth/auth-scaffold')
 
 @section('title', 'Login')
-
-
+@php
+    $setting = AppSetting::first();
+@endphp
 @section('page-style')
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}" />
 @endsection
@@ -23,7 +24,7 @@
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-7 p-0">
       <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-        <img src="{{ asset('assets/img//material/images-loginpanel.svg') }}" alt="auth-login-cover" class="img-fluid my-5 auth-illustration">
+        <img src="{{ asset('assets/img/material/images-loginpanel.svg') }}" alt="auth-login-cover" class="img-fluid my-5 auth-illustration">
 
         {{-- <img src="{{ asset('assets/img/illustrations/bg-shape-image-light.png') }}" alt="auth-login-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png"> --}}
       </div>
@@ -33,11 +34,11 @@
     <!-- Login -->
     <div class="d-flex col-12 col-lg-5 align-items-center p-sm-5 p-4">
       <div class="w-px-400 mx-auto">
-        <!-- Logo -->
+        <!-- Logo --> 
         <div class="app-brand mb-4 ">
           <a href="{{url('/')}}" class="app-brand-link">
             <span class="app-brand-logo">
-                <center><img src="{{ asset('assets/img/material/logo.png') }}" alt="logo" class="w-50"></center>
+                <center><img src="{{ $setting?->logo ? asset($setting->logo) : asset('assets/img/material/logo.png') }}" alt="logo" class="w-50"></center>
             </span>
           </a>
         </div>

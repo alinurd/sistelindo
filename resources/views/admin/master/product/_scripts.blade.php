@@ -1,5 +1,6 @@
 <script>
         CKEDITOR.replace('description', CKEDITORGlobalOptions); 
+        CKEDITOR.replace('shortdescription', CKEDITORGlobalOptions); 
 
     // delete
     function btnDeleteItem(target, title) {
@@ -67,6 +68,7 @@
             jsonData[key] = $(this).val().trim();
         });
                         jsonData['description'] = CKEDITOR.instances['description'].getData();
+                        jsonData['shortdescription'] = CKEDITOR.instances['shortdescription'].getData();
 
         $.ajax({
             type: "POST",
@@ -98,12 +100,16 @@
             if (res.status == 'success') {
                 $.each(res.data[0], function(name, val) {
                     $(`#formData .form-control[name='${name}']`).val(val);
+                    if (name === 'imagebanner' && val) {
+                        $('#formData #holder1 img').attr('src', "{{ url('/') }}/" + val);
+                    }
                     if (name === 'image' && val) {
                         $('#formData #holder img').attr('src', "{{ url('/') }}/" + val);
                     }
                 });
                 $('#data_id').val(id);
                             CKEDITOR.instances['description'].setData(res.data[0]['description']);
+                            CKEDITOR.instances['shortdescription'].setData(res.data[0]['shortdescription']);
 
                 $('#modalForm').modal('toggle');
             } else {

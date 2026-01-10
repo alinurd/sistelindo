@@ -369,6 +369,7 @@
         //datatables Set
         $(document).ready(function() {
             $('#lfm').filemanager('image');
+            $('#lfm1').filemanager('image');
             $('.lfm').filemanager('image');
             $('#lfmfiles').filemanager('files');
 

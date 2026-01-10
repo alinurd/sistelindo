@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        $data = $request->only(['id', 'sort', 'status', 'title', 'description', 'image','title_id']);
+        $data = $request->only(['id', 'sort', 'status', 'title', 'description','shortdescription', 'image','imagebanner','title_id']);
         $data = (object) $data;
 
         if($data->id == 0){
@@ -32,6 +32,9 @@ class ProductController extends Controller
         if($sort != 0){
             return response()->json(['status'=> 'error', 'message' => 'Sort sudah dipakai']);
         } else {
+            if(!empty($data->imagebanner)) {
+                $data->imagebanner = str_replace(url('/').'/', '', $data->imagebanner);
+            }
             if(!empty($data->image)) {
                 $data->image = str_replace(url('/').'/', '', $data->image);
             }
