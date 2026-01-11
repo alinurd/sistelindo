@@ -7,7 +7,7 @@
             <a href="#" class="btn btn-primary booking-btn">
                 Booking Demo
             </a>
-                        <img src="{{ asset( "assets/img/banner-detail-product.jpeg") }}" class="rounded   product-image" />
+                        <img src="{{ asset($product->imagebanner) }}" class="rounded   product-image" />
 
 
              <span class="image-caption">
@@ -22,7 +22,7 @@
                 <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
                     <!-- Gambar di kiri -->
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <img src="{{ asset($product->imagebanner) }}" class="rounded hover-grow" alt=""
+                        <img src="{{ asset($product->image) }}" class="rounded hover-grow" alt=""
                             style="width: 280px; height: 210px; object-fit: cover;">
                     </div>
                 </div>
