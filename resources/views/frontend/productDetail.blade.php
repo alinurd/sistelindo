@@ -22,7 +22,7 @@
                 <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
                     <!-- Gambar di kiri -->
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <img src="{{ asset($product->image) }}" class="rounded hover-grow" alt=""
+                        <img src="{{ asset($product->imagebanner) }}" class="rounded hover-grow" alt=""
                             style="width: 280px; height: 210px; object-fit: cover;">
                     </div>
                 </div>
