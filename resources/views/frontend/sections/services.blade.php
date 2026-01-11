@@ -99,17 +99,19 @@ function updateDisplay() {
             : '/' + facility.image;
         
         // Potong deskripsi menjadi 100 kata
-        const truncatedDescription = truncateTo100Words(facility.description || '');
-        
-        colDiv.innerHTML = `
+        const truncatedDescription = truncateTo100Words(facility.shortdescription || '-');
+            const productDetailRoute = @json(route('guest.productDetail', ':id'));
+            const detailUrl = productDetailRoute.replace(':id', facility.id);
+            colDiv.innerHTML = `
             <img src="${imageSrc}" width="500" height="260" class="shadow-sm rounded mb-3" />
              <br><br>   
             <div class="services-card">
                 <h5>${facility.title || ''}</h5>
                 <p class="text-muted small px-3">
-                    ${truncatedDescription}
+                    ${facility.shortdescription || ''}
                 </p>
-                <a class="btn btn-outline-primary btn-sm">Detail</a>
+ 
+                <a href="${detailUrl}"  class="btn btn-outline-primary btn-sm">Detail</a>
             </div>
         `;
         

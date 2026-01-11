@@ -89,18 +89,20 @@
                 // Buat elemen item
                 const facilityElement = document.createElement('div');
                 facilityElement.className = 'col-lg-10 mx-auto d-flex mb-4 facility-item';
-
+                const productDetailRoute = @json(route('guest.productDetail', ':id'));
+                const detailUrl = productDetailRoute.replace(':id', facility.id);
                 facilityElement.innerHTML = `
                     <img src="${facility.image.startsWith('http') ? facility.image : 
                               facility.image.startsWith('/') ? facility.image : 
                               '/' + facility.image}" 
                          width="300" height="200" class="shadow-sm rounded me-4" />
                     <div class="flex-grow-1">
+                         <a href="${detailUrl}" class="link-title">
                         <h6 class="fw-bold mb-2" style="font-size: 18px">${facility.title || ''}</h6>
+                        </a>
                         <p class="text-muted mb-2" style="font-size: 14px; line-height: 1.6">
-                            ${shortDescription}
-                            ${(facility.description || '')}
-                        </p>
+                            ${facility.shortdescription || shortDescription}
+                         </p>
                     </div>
                 `;
 
@@ -158,3 +160,17 @@
         updateDisplay();
     });
 </script>
+
+<style>
+    .link-title {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-title:hover {
+    text-decoration: underline;
+    color: #0d6efd; /* biru bootstrap */
+}
+
+</style>

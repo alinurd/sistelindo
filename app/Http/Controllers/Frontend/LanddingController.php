@@ -52,10 +52,10 @@ class LanddingController extends Controller
 
         return view('frontend.product', $data);
     }
-    public function productDetail()
+    public function productDetail($id)
     {
         $data['lineMarket'] = Line::where('status', 1)->orderby('sort', 'asc')->get();
-        $data['product'] = Product::where('id', 1)->orderby('sort', 'asc')->first();
+        $data['product'] = Product::where('id', $id)->orderby('sort', 'asc')->first();
 
           
         $data['facility'] = Facility::where('status', 1)->orderby('sort', 'asc')->get();
