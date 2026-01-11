@@ -7,7 +7,7 @@
             <a href="#" class="btn btn-primary booking-btn">
                 Booking Demo
             </a>
-                        <img src="{{ asset($product->imagebanner|| "assets/img/banner-detail-product.jpeg") }}" class="rounded   product-image" />
+                        <img src="{{ asset( "assets/img/banner-detail-product.jpeg") }}" class="rounded   product-image" />
 
 
              <span class="image-caption">
