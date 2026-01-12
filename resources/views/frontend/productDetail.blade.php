@@ -12,7 +12,7 @@
 
     <section class="mt-5 mb-5">
         <div class="container">
-            <div class=" align-items-center" style="margin-left: 100px">
+            <div class=" align-items-center" style="margin-left: 100px; margin-right: 100px">
                 {{-- <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
                     <!-- Gambar di kiri -->
                     <div class="d-flex justify-content-center justify-content-lg-start">
