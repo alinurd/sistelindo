@@ -91,7 +91,7 @@
     .product-image {
         width: 100%;
         height: auto;
-        border-radius: 12px;
+        /* border-radius: 12px; */
     }
 
     /* BUTTON: tengah vertikal, agak ke kiri */
