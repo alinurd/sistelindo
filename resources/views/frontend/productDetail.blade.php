@@ -4,29 +4,24 @@
     {{-- TOP SPACING --}}
     <section class="w-full text-center mb-16 animate-fade-in">
         <div class="image-wrapper">
-            <a href="#" class="btn btn-primary booking-btn">
-                Booking Demo
-            </a>
-                       <img src="{{ asset($product->imagebanner ?? 'assets/img/banner-detail-product.jpeg') }}" class="rounded shadow product-image" />
-
-             <span class="image-caption">
-                Detail Product
-            </span>
+           
+                       <img src="{{ asset($product->imagebanner ?? 'assets/img/banner-detail-product.jpeg') }}" class="product-image" />
+ 
         </div>
     </section>
 
     <section class="mt-5 mb-5">
         <div class="container">
-            <div class="row align-items-center" style="margin-left: 100px">
-                <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
+            <div class=" align-items-center" style="margin-left: 100px">
+                {{-- <div class="col-lg-3 col-md-5 animate-slide-left stagger-delay-1">
                     <!-- Gambar di kiri -->
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <img src="{{ asset($product->image ?? 'assets/img/noimage.jpg') }}" class="rounded hover-grow" alt=""
                             style="width: 280px; height: 210px; object-fit: cover;">
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-lg-9 col-md-7 animate-slide-right stagger-delay-2 mt-4 mt-md-0">
+                <div class=" animate-slide-right stagger-delay-2 mt-4 mt-md-0">
                     <!-- Judul -->
                     <h2 class="text-title mb-1">{!! $product->title !!}</h2>
 
@@ -46,91 +41,7 @@
         </div>
     </section>
 
-    <section class="mt-5 mb-2" style="color: #064b90;">
-        <div class="container bg-light rounded p-4" style="max-width: 700px">
-            <p class=" mb-3 text-title" style="font-size: 14px; color: #064b90; font-weight: 500;">
-                        Bentuk
-                        <span class="text-highlight" style="font-size: 14px;">Layanan</span>
-                    </p> 
-            
-            <div class="row  text-center">
-                <div class="col-md-7">
-                    <ul class="list-unstyled">
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Dedicated Lossed Line</span>
-                        </li>
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Public Inferred (Closed Area)</span>
-                        </li>
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Mail & Web Services</span>
-                        </li>
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Hosting, Domain & Co-location</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-5">
-                    <ul class="list-unstyled">
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Koonranan Jaringan</span>
-                        </li>
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Colaupan Nallian Witte</span>
-                        </li>
-                        <li class="mb-1 d-flex align-items-start">
-                            <span class="me-2" style="color: #064b90;">•</span>
-                            <span>Dokungan Hitip Deik 24 jam</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section> 
-
-    <section class="text-center  px-4">
-        <span class="text-title mb-3 animate-fade-in mt-5 text-center">
-            Diagram Anomali <br>
-            <span class="text-highlight"><strong>Dual Homing (Kurang Ideal)</strong></span>
-        </span>
-        <div class="container animate-fade-in stagger-delay-1">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <!-- Container untuk gambar timeline -->
-                    <div class="timeline-image-container">
-                        <img src="{{ asset('') }}" class="img-fluid timeline-image "
-                            alt="Diagram Anomali Img" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="text-center mt-5 px-4">
-        <span class="text-title mb-3 animate-fade-in mt-5 text-center">
-            Company 
-            <span class="text-highlight"><strong>Study Case</strong></span>
-        </span>
-        <div class="container animate-fade-in stagger-delay-1">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <!-- Container untuk gambar timeline -->
-                    <div class="timeline-image-container">
-                        <img src="{{ asset('') }}" class="img-fluid timeline-image "
-                            alt="Study Case Img" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     
     <section class="container text-center">
      <div class="row justify-content-center g-4">
@@ -173,7 +84,7 @@
     .image-wrapper {
         position: relative;
         display: inline-block;
-        width: 99%;
+        width: 100%;
     }
 
     /* IMAGE */
