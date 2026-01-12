@@ -5,7 +5,7 @@
     <section class="w-full text-center mb-16 animate-fade-in">
         <div class="image-wrapper">
            
-                       <img src="{{ asset($product->imagebanner ?? 'assets/img/banner-detail-product.jpeg') }}" class="product-image" />
+                       <img src="{{ asset($product->imagebanner ?? 'assets/img/noimage.jpg') }}" class="product-image" />
  
         </div>
     </section>
