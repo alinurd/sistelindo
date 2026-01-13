@@ -26,11 +26,7 @@
                     <h2 class="text-title mb-1">{!! $product->title !!}</h2>
 
                     <!-- Subtitle -->
-                    <p class=" mb-3 text-title" style="font-size: 14px; color: #064b90; font-weight: 500;">
-                        Deskripsi
-                        <span class="text-highlight" style="font-size: 14px;">Detail</span>
-                    </p>
-
+                   
                     <!-- Deskripsi -->
                     <p class="text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
                         {!! $product->description !!}
