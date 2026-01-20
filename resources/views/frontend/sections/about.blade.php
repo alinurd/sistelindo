@@ -9,7 +9,7 @@
                 </p>
             </div>
         </div>
-        <a href="#" class="btn btn-primary mt-1">Detail</a>
+        <a href="{{route('guest.about')}}" class="btn btn-primary mt-1">Detail</a>
         
     </div>
 </section>
