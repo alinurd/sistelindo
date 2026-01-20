@@ -1,4 +1,5 @@
 @extends('admin.layouts.app', ['title' => 'App Settings', 'ckeditor' => true])
+<x-modal.pin-point-location roleName="{{ 'appsetting' }}" userData="{{ 'appsetting' }}" type="customer" />
 
 @section('content')
     <div class="card shadow">
@@ -52,13 +53,17 @@
 
                         <h4 class="card-title">Contacts</h4>
 
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="website">Website</label>
-                            <input type="text" id="website" class="form-control"
-                                value="@if ($data != null) {{ $data->website }} @endif"
-                                placeholder="website" aria-label="website" name="website"
-                                aria-describedby="website" required />
-                        </div>
+                        <div class="mb-3">
+                                    <label for="pin_point" id="label-pin_point" class="form-label">Pin Point</label>
+                                    <div class="input-group">
+                                                <input type="hidden" class="form-control" id="lat" name="latitude" />
+                                                <input type="hidden" class="form-control" id="lng" name="longitude" />
+                                                <input type="text" class="form-control" id="pinPoint" name="pin_point" value="@if ($data != null) {{ $data->pin_point }} @endif" required />
+                                                <span id="btn-browse-pinpoint" class="btn btn-primary"
+                                                    onclick="$('#modalPinPointLoaction').modal('show')">Change</span>
+                                            </div>
+
+                                </div>
 
 
                         <div class="form-group">

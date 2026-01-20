@@ -4,8 +4,7 @@
 
     $set = AppSetting::first();
     $p = PageDetail::where('status', 1)->get();
-    dd($set);
-@endphp
+ @endphp
 
 <section class="py-5 contact-section animate-fade-in">
     <div class="container">
@@ -32,25 +31,32 @@
                                 <p class="mb-2">
                                     {!! $set->address !!}
                                 </p>
-                                
+                               
                                 <!-- Google Maps -->
                                 <div class="map-container mb-2">
-                                    {{-- <iframe
-                                        src="{{ ($p[0]['latitude'] ?? null) && ($p[0]['longitude'] ?? null)
-                                            ? "https://www.google.com/maps?q={$p[0]['latitude']},{$p[0]['longitude']}&hl=es;z=14&output=embed"
-                                            : null }}"
-                                        style="border:0; width:100%; height:200px; border-radius: 8px;" 
-                                        allowfullscreen loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade">
-                                    </iframe> --}}
+                                    @php
+    $pinPoint = isset($set['pin_point']) ? json_decode($set['pin_point'], true) : null;
+@endphp
 
-                                     <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.489206847798!2d106.7965422!3d-6.2029362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4747b8eeff5%3A0x1ee924a748e43668!2sPT.%20Sistelindo%20Mitralintas!5e0!3m2!1sid!2sid!4v1700000000000"
-    style="border:0; width:100%; height:200px; border-radius:8px;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+                                    @if(!empty($pinPoint['latitude']) && !empty($pinPoint['longitude']))
+        {{-- MAP DARI PIN POINT --}}
+        <iframe
+            src="https://www.google.com/maps?q={{ $pinPoint['latitude'] }},{{ $pinPoint['longitude'] }}&z=15&output=embed"
+            style="border:0; width:100%; height:200px; border-radius:8px;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    @else
+        {{-- MAP DEFAULT --}}
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.489206847798!2d106.7965422!3d-6.2029362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4747b8eeff5%3A0x1ee924a748e43668!2sPT.%20Sistelindo%20Mitralintas!5e0!3m2!1sid!2sid!4v1700000000000"
+            style="border:0; width:100%; height:200px; border-radius:8px;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    @endif
 
                                 </div>
                                 

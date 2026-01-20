@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Setting;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\AppSetting;
+use Illuminate\Http\Request;
 
 class AppSettingController extends Controller
 {
@@ -21,7 +21,7 @@ class AppSettingController extends Controller
             'title', 'telephone', 'mobile_phone', 'email', 'address', 'contactus', 'latitude', 'longitude', 'footer_text',
             'logo', 'logo_footer', 'favicon', 'meta_keyword', 'meta_description', 'whatsapp', 'website',
             'facebook', 'status_facebook', 'twitter', 'status_twitter', 'youtube', 'status_youtube',
-            'tiktok', 'status_tiktok', 'instagram', 'status_instagram'
+            'tiktok', 'status_tiktok', 'instagram', 'status_instagram','pin_point'
         ]);
         if(!empty($data['logo'])) {
             $data['logo'] = str_replace(url('/').'/', '', $data['logo']);
