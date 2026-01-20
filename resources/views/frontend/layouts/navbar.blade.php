@@ -38,7 +38,7 @@
 
 
 
-        <a class="navbar-brand fw-bold text-primary" href="#">
+        <a class="navbar-brand fw-bold text-primary" href="{{ route('guest.home') }}">
 
              <img src="{{ $set?->logo ? asset($setting->logo) : asset('/storage/photos/1/sistelindo-favicon.png') }}"  alt="{{$set?->title? : 'Sistelindo'}}"
 

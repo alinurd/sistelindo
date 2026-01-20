@@ -8,8 +8,10 @@
     <div class="container footer-content">
         <!-- Kolom 1 -->
         <div class="footer-left" style="margin-right: 50px">
+            <a href="{{ route('guest.home') }}">
             <img src="{{ $set?->logo ? asset($setting->logo) : asset('/storage/photos/1/sistelindo-favicon.png') }}"
                 class="rounded" alt="icon" width="250" height="80">
+                </a>
 
             <p class="small lh-base mt-3"style="max-width: 550px;">
                 Welcome to PT Sistelindo Mitralintas (referred to as Sistelindo) -
@@ -21,27 +23,30 @@
         </div>	
 
         <!-- Kolom 2 -->
-        <div class="footer-links " style="margin-right: 50px">
+        <div class="footer-links " style="margin-right: 10px">
             <h6 class="fw-bold text-uppercase mb-3 small">Related Links</h6>
             <ul class="list-unstyled small">
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">Home</a></li>
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">About Us</a>
+                <li class="mb-2"><a href="{{ route('guest.home') }}" class="text-dark text-decoration-none">Home</a></li>
+                <li class="mb-2"><a href="{{ route('guest.about') }}" class="text-dark text-decoration-none">About Us</a>
                 </li>
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">Services</a>
+                <li class="mb-2"><a href="{{ route('guest.product') }}" class="text-dark text-decoration-none">Services</a>
                 </li>
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">Contact Us</a>
+                <li class="mb-2"><a href="{{ route('guest.contact') }}" class="text-dark text-decoration-none">Contact Us</a>
                 </li>
-            </ul>
+            </ul> 
         </div>
-
         <!-- Kolom 3 -->
-        <div class="footer-villa" style="margin-right: 50px">
+        <div class="footer-villa" style="margin-right: 20px">
             <h6 class="fw-bold text-uppercase mb-3 small">Our Services</h6>
             <ul class="list-unstyled small">
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">Managed
-                        Service</a></li>
-                <li class="mb-2"><a href="#" class="text-dark text-decoration-none">Wiring
-                        Infrastructure Service</a></li>
+                 @foreach ($d as $p)
+                    <li class="mb-2" style="max-width: 200px;white-space: normal;word-wrap: break-word;">
+                        <a href="{{ route('guest.productDetail', ['id' => $p['id']]) }}"
+                        class="text-dark text-decoration-none">
+                            {{ $p['title'] }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 

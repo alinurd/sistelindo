@@ -67,7 +67,7 @@
                             Need a hand using our services or managing your account?
                             Get in Touch, live human using our Help Center.
                         </p>
-                        <a href="#" class="btn btn-primary px-4 mt-2 align-self-start">Get in Touch</a>
+                        <a href="{{route('guest.contact')}}" class="btn btn-primary px-4 mt-2 align-self-start">Get in Touch</a>
                     </div>
 
                 </div>
