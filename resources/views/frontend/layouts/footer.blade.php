@@ -29,7 +29,7 @@
                 <li class="mb-2"><a href="{{ route('guest.home') }}" class="text-dark text-decoration-none">Home</a></li>
                 <li class="mb-2"><a href="{{ route('guest.about') }}" class="text-dark text-decoration-none">About Us</a>
                 </li>
-                <li class="mb-2"><a href="{{ route('guest.product') }}" class="text-dark text-decoration-none">Services</a>
+                <li class="mb-2"><a href="{{ route('guest.product') }}" class="text-dark text-decoration-none">Product & Services</a>
                 </li>
                 <li class="mb-2"><a href="{{ route('guest.contact') }}" class="text-dark text-decoration-none">Contact Us</a>
                 </li>
