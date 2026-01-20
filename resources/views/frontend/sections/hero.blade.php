@@ -60,7 +60,7 @@
                     <div class="text-muted" id="bannerDescription">
                         {!! $banner[0]->dsc !!}
                     </div>
-                    <a class="btn btn-primary px-4 " id="bannerButton">Detail</a>
+                    <a class="btn btn-primary px-4 " href="{{route('guest.about')}}" id="bannerButton">Detail</a>
                 </div>
                 @endif
             </div>
