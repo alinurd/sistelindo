@@ -60,8 +60,8 @@
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 20px;
-            right: 20px;
+            bottom: 60px;
+            right: 40px;
             background-color: #25D366;
             color: white;
             border-radius: 50%;
