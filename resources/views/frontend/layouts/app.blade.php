@@ -48,6 +48,39 @@
     <main>
         @yield('content')
     </main>
+     <a class="btn btn-brown btn-lg whatsapp-float"
+        href="https://wa.me/{{ $setting->whatsapp }}?text={{ urlencode('Halo Admin, Bisakah Saya mendapatkan informasi lebih lanjut?') }}"
+        target="_blank"
+        >
+        <i class="fab fa-whatsapp" aria-hidden="true" title="Hubungi Tim Sales dan Marketing kami untuk informasi lebih lanjut."></i>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+            background-color: #1c6a39;
+        }
+    </style>
 
     @include('frontend.layouts.footer')
 
