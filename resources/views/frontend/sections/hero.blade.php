@@ -23,7 +23,8 @@
                         @foreach($banner as $i => $p)
                         <div class="carousel-item {{ $i === 0 ? 'active' : '' }}" 
                              data-title="{{ htmlspecialchars($p->title, ENT_QUOTES) }}"
-                             data-dsc="{{ htmlspecialchars($p->dsc, ENT_QUOTES) }}">
+                             data-dsc="{{ htmlspecialchars($p->dsc, ENT_QUOTES) }}"
+                             data-url="{{$p->url??route('guest.about')}}">
                             <img src="{{ $p->image }}" class="d-block w-100 hero-slider-img" alt="{{ $p->title }}">
                         </div>
                         @endforeach
@@ -60,7 +61,8 @@
                     <div class="text-muted" id="bannerDescription">
                         {!! $banner[0]->dsc !!}
                     </div>
-                    <a class="btn btn-primary px-4 " href="{{route('guest.about')}}" id="bannerButton">Detail</a>
+                    {{-- {{dd($banner)}} --}}
+                    <a class="btn btn-primary px-4 " href="" id="bannerButton">Detail</a>
                 </div>
                 @endif
             </div>
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSlider = document.getElementById('heroSlider');
     const bannerTitle = document.getElementById('bannerTitle');
     const bannerDescription = document.getElementById('bannerDescription');
+    const bannerButton = document.getElementById('bannerButton');
     
     if (heroSlider) {
         // Fungsi untuk decode HTML entities
@@ -92,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Ambil data dari atribut data-* pada slide
             const title = decodeHtml(activeSlide.getAttribute('data-title'));
             const dsc = decodeHtml(activeSlide.getAttribute('data-dsc'));
+            const url = decodeHtml(activeSlide.getAttribute('data-url'));
             
             if (bannerTitle && bannerDescription) {
                 // Animasi fade out
@@ -102,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Update konten
                     bannerTitle.textContent = title;
                     bannerDescription.innerHTML = dsc;
+                    bannerButton.setAttribute('href', url);
                     
                     // Animasi fade in
                     bannerTitle.style.opacity = '1';

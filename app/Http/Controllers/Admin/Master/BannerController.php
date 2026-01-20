@@ -20,7 +20,7 @@ class BannerController extends Controller
 
     public function create(Request $request)
     {
-        $data = $request->only(['id', 'sort', 'status', 'title','image','dsc']);
+        $data = $request->only(['id', 'sort', 'status', 'title','url','image','dsc']);
         $data = (object) $data; 
 
         if($data->id == 0){

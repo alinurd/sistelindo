@@ -24,6 +24,12 @@
             <input type="text" class="form-control" id="title" name="title" required />
         </div>
     </div>
+<div class="row g-1 mb-3">
+        <div class="col-md-8 col-12">
+            <label for="title" id="label-title" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url" name="url" required />
+        </div>
+    </div>
  <div class="mb-3">
     <label for="dsc" id="label-dsc" class="form-label">Description</label>
     <textarea name="dsc" id="dsc" class="form-control"></textarea>
