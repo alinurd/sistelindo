@@ -18,7 +18,7 @@ class CompanyController extends Controller
     public function create(Request $request)
     { 
 
-        $data = $request->only(['id',  'image',
+        $data = $request->only(['id',  
                                     'review', 
                                     'vision', 
                                     'mission', 

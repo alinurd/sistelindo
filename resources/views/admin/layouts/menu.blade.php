@@ -138,23 +138,4 @@
   {{-- End Settings --}}
 
 
-  <!-- Misc -->
-  <li class="menu-header small text-uppercase">
-    <span class="menu-header-text" data-i18n="Misc">Misc</span>
-  </li>
-  <li class="menu-item">
-    <a href="javascript:;" target="_blank" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-lifebuoy"></i>
-      <div data-i18n="Support">Support</div>
-    </a>
-  </li>
-  <li class="menu-item">
-    <a
-      href="javascript:;"
-      target="_blank"
-      class="menu-link">
-      <i class="menu-icon tf-icons ti ti-file-description"></i>
-      <div data-i18n="Documentation">Documentation</div>
-    </a>
-  </li>
 </ul>

@@ -64,7 +64,7 @@
                             </div> 
 
                             {{-- Status Toggle --}}
-                            <div class="form-group mb-3">
+                            {{-- <div class="form-group mb-3">
                                 <label class="form-label">Status</label>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input switch-input" type="checkbox" 
@@ -74,34 +74,9 @@
                                         {{ $company['status'] == 1 ? 'Active' : 'Inactive' }}
                                     </label>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <div class="border rounded p-2">
-                                        <label class="form-label mb-1"> License Holder </label>
-                                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center px-3">
-                                            <div id="holder-logo" class="mb-1 mb-md-0">
-                                                @if($company['image'])
-                                                    <img src="{{ asset($company['image']) }}" style="max-height: 110px; width:100%;" alt="Featured Image">
-                                                @else
-                                                    <img src="{{ asset('assets/img/noimage.jpg') }}" style="max-height: 110px; width:100%;" alt="No Image">
-                                                @endif
-                                            </div>
-                                            <div>
-                                                <small class="text-muted">
-                                                Recommended Resolution 300 x 150 pixel</small>
-                                                <div class="input-group">
-                                                    <a data-input="thumbnail-logo" data-preview="holder-logo" class="btn btn-primary text-white lfm">
-                                                        <i class="menu-icon tf-icons ti ti-photo"></i> Choose
-                                                    </a>
-                                                    <input id="thumbnail-logo" class="form-control bg-secondary-subtle" type="text" name="image" value="{{ $company['image'] }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                             
                         @else
                             <div class="alert alert-warning">
                                 No company data found.
