@@ -50,6 +50,11 @@
             'title' => 'Product',
             'icon' => 'ti ti-window',
         ],
+       [
+            'route' => 'admin.master.happycustomer.index',
+            'title' => 'Happy Customer',
+            'icon' => 'ti ti-window',
+        ],
     ];
 @endphp
 <ul class="menu-inner py-1">

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Master\FacilityController;
 use App\Http\Controllers\Admin\Master\FacilityCoreController;
 use App\Http\Controllers\Admin\Master\GalleryController;
+use App\Http\Controllers\Admin\Master\HappycustomerController;
 use App\Http\Controllers\Admin\Master\IsoController;
 use App\Http\Controllers\Admin\Master\LineController;
 use App\Http\Controllers\Admin\Master\PageDetailController;
@@ -129,6 +130,16 @@ Route::prefix('/master')->name('master.')->group(function () {
 
      Route::prefix('/facilitycore')->name('facilitycore.')->group(function () {
         $localClass = FacilityCoreController::class;
+        Route::get('/', [$localClass, 'index'])->name('index');
+        Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
+        Route::post('/submit', [$localClass, 'create'])->name('create');
+        Route::get('/delete/{id}', [$localClass, 'delete'])->name('delete');
+        Route::get('/multidelete', [$localClass, 'multi_delete'])->name('multi_delete');
+        Route::get('/status/{id}', [$localClass, 'editstatus'])->name('status');
+    });
+
+     Route::prefix('/happycustomer')->name('happycustomer.')->group(function () {
+        $localClass = HappycustomerController::class;
         Route::get('/', [$localClass, 'index'])->name('index');
         Route::get('/edit/{id}', [$localClass, 'edit'])->name('edit');
         Route::post('/submit', [$localClass, 'create'])->name('create');
