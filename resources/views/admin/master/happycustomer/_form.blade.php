@@ -41,6 +41,11 @@
   </div>
 </div> 
 
+<div class="col-md-3 col-12">
+    <label for="date" id="label-date" class="form-label">Date</label>
+    <input type="date"  class="form-control" id="date" name="date" required />
+  </div>
+
   <div class="mb-3">
     <label for="description" id="label-description" class="form-label"></label>
     <textarea name="description" id="description" class="form-control"></textarea>
