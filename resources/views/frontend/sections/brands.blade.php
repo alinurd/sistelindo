@@ -19,7 +19,8 @@
   
 
         @include('frontend.sections.brand-pola')
-
+        @include('frontend.sections.testimoni')
+        
 
         <!-- SPACING -->
         <div class="my-5 mt-4"></div>

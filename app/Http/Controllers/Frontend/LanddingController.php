@@ -10,6 +10,7 @@ use App\Models\Master\Customer;
 use App\Models\Master\Facility;
 use App\Models\Master\FacilityCore;
 use App\Models\Master\Gallery;
+use App\Models\Master\Happycustomer;
 use App\Models\Master\Iso;
 use App\Models\Master\Line;
 use App\Models\Master\PageDetail;
@@ -26,6 +27,7 @@ class LanddingController extends Controller
         $data['facility'] = Facility::where('status', 1)->orderby('sort', 'asc')->get();
         $data['company'] = Company::where('status', 1)->orderby('sort', 'asc')->first();
         $data['customer'] = Customer::where('status', 1)->orderby('sort', 'asc')->get();
+        $data['happyCustomer'] = Happycustomer::where('status', 1)->orderby('sort', 'asc')->get();
         //  \dd($data);
         return view('frontend.index', $data);
     }
